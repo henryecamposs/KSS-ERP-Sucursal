@@ -1,0 +1,1032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kssERPSucursaldbModelStoreContainer" CdmEntityContainer="kssERPSucursaldbEntities">
+    <EntitySetMapping Name="Almacenes">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Almacenes">
+        <MappingFragment StoreEntitySet="Almacenes">
+          <ScalarProperty Name="id_Almacenes" ColumnName="id_Almacenes" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+          <ScalarProperty Name="Almacen" ColumnName="Almacen" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Teleono" ColumnName="Teleono" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Horarios" ColumnName="Horarios" />
+          <ScalarProperty Name="esDeposito" ColumnName="esDeposito" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bancos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Bancos">
+        <MappingFragment StoreEntitySet="Bancos">
+          <ScalarProperty Name="id_Bancos" ColumnName="id_Bancos" />
+          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Banco" ColumnName="Banco" />
+          <ScalarProperty Name="id_DefTipoCuenta" ColumnName="id_DefTipoCuenta" />
+          <ScalarProperty Name="CGCuenta" ColumnName="CGCuenta" />
+          <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+          <ScalarProperty Name="DepositosDiferidos" ColumnName="DepositosDiferidos" />
+          <ScalarProperty Name="ChequesPostdatados" ColumnName="ChequesPostdatados" />
+          <ScalarProperty Name="UltimaActualizacion" ColumnName="UltimaActualizacion" />
+          <ScalarProperty Name="ProximoCheque" ColumnName="ProximoCheque" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cajas">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Cajas">
+        <MappingFragment StoreEntitySet="Cajas">
+          <ScalarProperty Name="id_Cajas" ColumnName="id_Cajas" />
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="id_Clientes" ColumnName="id_Clientes" />
+          <ScalarProperty Name="id_TiposPago" ColumnName="id_TiposPago" />
+          <ScalarProperty Name="id_DefTiposPrecio" ColumnName="id_DefTiposPrecio" />
+          <ScalarProperty Name="CantidadUnidadVentaPred" ColumnName="CantidadUnidadVentaPred" />
+          <ScalarProperty Name="esAbierta" ColumnName="esAbierta" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esAgruparItemsIdenticos" ColumnName="esAgruparItemsIdenticos" />
+          <ScalarProperty Name="esNroFactura_Person" ColumnName="esNroFactura_Person" />
+          <ScalarProperty Name="esRemoto" ColumnName="esRemoto" />
+          <ScalarProperty Name="FechaAnterior" ColumnName="FechaAnterior" />
+          <ScalarProperty Name="FechaApertura" ColumnName="FechaApertura" />
+          <ScalarProperty Name="MontoApertura" ColumnName="MontoApertura" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NroFacturaAnteior_IF" ColumnName="NroFacturaAnteior_IF" />
+          <ScalarProperty Name="NroFacturaAnterior" ColumnName="NroFacturaAnterior" />
+          <ScalarProperty Name="Serial_IF" ColumnName="Serial_IF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cajas_Cortes">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Cajas_Cortes">
+        <MappingFragment StoreEntitySet="Cajas_Cortes">
+          <ScalarProperty Name="id_Cajas_Cortes" ColumnName="id_Cajas_Cortes" />
+          <ScalarProperty Name="id_Estaciones_Sesiones" ColumnName="id_Estaciones_Sesiones" />
+          <ScalarProperty Name="id_FacturaFinal" ColumnName="id_FacturaFinal" />
+          <ScalarProperty Name="id_FacturaInicial" ColumnName="id_FacturaInicial" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+          <ScalarProperty Name="FechaApertura" ColumnName="FechaApertura" />
+          <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+          <ScalarProperty Name="nroCorte" ColumnName="nroCorte" />
+          <ScalarProperty Name="MontoApetura" ColumnName="MontoApetura" />
+          <ScalarProperty Name="MontoCuadreCaja" ColumnName="MontoCuadreCaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cajas_Cortes_IF">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Cajas_Cortes_IF">
+        <MappingFragment StoreEntitySet="Cajas_Cortes_IF">
+          <ScalarProperty Name="id_Cajas_Cortes_IF" ColumnName="id_Cajas_Cortes_IF" />
+          <ScalarProperty Name="id_Cajas_Cortes" ColumnName="id_Cajas_Cortes" />
+          <ScalarProperty Name="RIF_IF" ColumnName="RIF_IF" />
+          <ScalarProperty Name="FechaFinal_IF" ColumnName="FechaFinal_IF" />
+          <ScalarProperty Name="FechaInicial_IF" ColumnName="FechaInicial_IF" />
+          <ScalarProperty Name="nroCorteZ_IF" ColumnName="nroCorteZ_IF" />
+          <ScalarProperty Name="nroFacturaInicial_IF" ColumnName="nroFacturaInicial_IF" />
+          <ScalarProperty Name="nrofacturaFinal_IF" ColumnName="nrofacturaFinal_IF" />
+          <ScalarProperty Name="nroSerial_IF" ColumnName="nroSerial_IF" />
+          <ScalarProperty Name="MontoTotal1" ColumnName="MontoTotal1" />
+          <ScalarProperty Name="MontoTotal2" ColumnName="MontoTotal2" />
+          <ScalarProperty Name="MontoTotal3" ColumnName="MontoTotal3" />
+          <ScalarProperty Name="TasaIva1" ColumnName="TasaIva1" />
+          <ScalarProperty Name="TasaIva2" ColumnName="TasaIva2" />
+          <ScalarProperty Name="TasaIva3" ColumnName="TasaIva3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cajas_Egresos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Cajas_Egresos">
+        <MappingFragment StoreEntitySet="Cajas_Egresos">
+          <ScalarProperty Name="id_Cajas_Egresos" ColumnName="id_Cajas_Egresos" />
+          <ScalarProperty Name="id_ArchivoAsociado" ColumnName="id_ArchivoAsociado" />
+          <ScalarProperty Name="id_Estaciones_Sesiones" ColumnName="id_Estaciones_Sesiones" />
+          <ScalarProperty Name="id_TiposEgreso_Caja" ColumnName="id_TiposEgreso_Caja" />
+          <ScalarProperty Name="id_Cajas_Cortes_IF" ColumnName="id_Cajas_Cortes_IF" />
+          <ScalarProperty Name="id_Usuario_Autoriza" ColumnName="id_Usuario_Autoriza" />
+          <ScalarProperty Name="FechaActural" ColumnName="FechaActural" />
+          <ScalarProperty Name="FechaRecibo" ColumnName="FechaRecibo" />
+          <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+          <ScalarProperty Name="NombreEntrega" ColumnName="NombreEntrega" />
+          <ScalarProperty Name="NombreAsociado" ColumnName="NombreAsociado" />
+          <ScalarProperty Name="NombreRecibe" ColumnName="NombreRecibe" />
+          <ScalarProperty Name="nroDocAsociado" ColumnName="nroDocAsociado" />
+          <ScalarProperty Name="nroReciboEgreso" ColumnName="nroReciboEgreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="id_clientes" ColumnName="id_clientes" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+          <ScalarProperty Name="id_World_Localidades" ColumnName="id_World_Localidades" />
+          <ScalarProperty Name="id_World_Regiones" ColumnName="id_World_Regiones" />
+          <ScalarProperty Name="id_Ven_Municipios" ColumnName="id_Ven_Municipios" />
+          <ScalarProperty Name="id_World__Paises" ColumnName="id_World__Paises" />
+          <ScalarProperty Name="id_Ven_Parroquias" ColumnName="id_Ven_Parroquias" />
+          <ScalarProperty Name="id_World_Profesiones" ColumnName="id_World_Profesiones" />
+          <ScalarProperty Name="id_TiposPago" ColumnName="id_TiposPago" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esEmpresa" ColumnName="esEmpresa" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Pasaporte" ColumnName="Pasaporte" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="telefono_movil" ColumnName="telefono_movil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="id_Empleados" ColumnName="id_Empleados" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+          <ScalarProperty Name="id_World_localidades" ColumnName="id_World_localidades" />
+          <ScalarProperty Name="id_World_Regiones" ColumnName="id_World_Regiones" />
+          <ScalarProperty Name="id_Ven_Municipios" ColumnName="id_Ven_Municipios" />
+          <ScalarProperty Name="id_World_Paises" ColumnName="id_World_Paises" />
+          <ScalarProperty Name="id_Ven_Parroquias" ColumnName="id_Ven_Parroquias" />
+          <ScalarProperty Name="id_World_Profesiones" ColumnName="id_World_Profesiones" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="rif" ColumnName="rif" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="telefono_movil" ColumnName="telefono_movil" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Empresas">
+        <MappingFragment StoreEntitySet="Empresas">
+          <ScalarProperty Name="id_empresas" ColumnName="id_empresas" />
+          <ScalarProperty Name="id_world_localidades" ColumnName="id_world_localidades" />
+          <ScalarProperty Name="id_world_Regiones" ColumnName="id_world_Regiones" />
+          <ScalarProperty Name="id_World_Idiomas" ColumnName="id_World_Idiomas" />
+          <ScalarProperty Name="id_ven_municipios" ColumnName="id_ven_municipios" />
+          <ScalarProperty Name="id_world_paises" ColumnName="id_world_paises" />
+          <ScalarProperty Name="id_ven_parroquias" ColumnName="id_ven_parroquias" />
+          <ScalarProperty Name="id_tiposComercio" ColumnName="id_tiposComercio" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="ImagenArchivo" ColumnName="ImagenArchivo" />
+          <ScalarProperty Name="nit" ColumnName="nit" />
+          <ScalarProperty Name="rif" ColumnName="rif" />
+          <ScalarProperty Name="telefonos" ColumnName="telefonos" />
+          <ScalarProperty Name="telefonosContacto" ColumnName="telefonosContacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas_Sucursales">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Empresas_Sucursales">
+        <MappingFragment StoreEntitySet="Empresas_Sucursales">
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+          <ScalarProperty Name="id_Empresas" ColumnName="id_Empresas" />
+          <ScalarProperty Name="id_tiposComercios" ColumnName="id_tiposComercios" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="rif" ColumnName="rif" />
+          <ScalarProperty Name="telefonos" ColumnName="telefonos" />
+          <ScalarProperty Name="id_world_Regiones" ColumnName="id_world_Regiones" />
+          <ScalarProperty Name="id_world_Localidades" ColumnName="id_world_Localidades" />
+          <ScalarProperty Name="id_world_Idiomas" ColumnName="id_world_Idiomas" />
+          <ScalarProperty Name="id_ven_Municipios" ColumnName="id_ven_Municipios" />
+          <ScalarProperty Name="id_world_Paises" ColumnName="id_world_Paises" />
+          <ScalarProperty Name="id_ven_Parroquias" ColumnName="id_ven_Parroquias" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="telefonosContacto" ColumnName="telefonosContacto" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="ImagenArchivo" ColumnName="ImagenArchivo" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones">
+        <MappingFragment StoreEntitySet="Estaciones">
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="id_Licencias" ColumnName="id_Licencias" />
+          <ScalarProperty Name="id_DefTipos_Estacion" ColumnName="id_DefTipos_Estacion" />
+          <ScalarProperty Name="id_DefTipos_PedirDatosCliente" ColumnName="id_DefTipos_PedirDatosCliente" />
+          <ScalarProperty Name="id_DefTipos_PrecioPredet" ColumnName="id_DefTipos_PrecioPredet" />
+          <ScalarProperty Name="id_DefTipos_DescargaInventario" ColumnName="id_DefTipos_DescargaInventario" />
+          <ScalarProperty Name="id_Almacenes" ColumnName="id_Almacenes" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esimprimirEgreso" ColumnName="esimprimirEgreso" />
+          <ScalarProperty Name="esImprimirFiscal" ColumnName="esImprimirFiscal" />
+          <ScalarProperty Name="esOffline" ColumnName="esOffline" />
+          <ScalarProperty Name="esPedirCantidad" ColumnName="esPedirCantidad" />
+          <ScalarProperty Name="esPreguntarCerrarApp" ColumnName="esPreguntarCerrarApp" />
+          <ScalarProperty Name="esRemoto" ColumnName="esRemoto" />
+          <ScalarProperty Name="esRequierePassword" ColumnName="esRequierePassword" />
+          <ScalarProperty Name="IPEstacion" ColumnName="IPEstacion" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="NombreEstacion" ColumnName="NombreEstacion" />
+          <ScalarProperty Name="esImprimirNConsumo" ColumnName="esImprimirNConsumo" />
+          <ScalarProperty Name="esPoseeTeclado" ColumnName="esPoseeTeclado" />
+          <ScalarProperty Name="esPoseeVisorPrecio" ColumnName="esPoseeVisorPrecio" />
+          <ScalarProperty Name="esPoseeVisorPreciosMonitorExtra" ColumnName="esPoseeVisorPreciosMonitorExtra" />
+          <ScalarProperty Name="esPoseeGaveta" ColumnName="esPoseeGaveta" />
+          <ScalarProperty Name="esPoseeCaptaHuella" ColumnName="esPoseeCaptaHuella" />
+          <ScalarProperty Name="esPoseePantallaTactil" ColumnName="esPoseePantallaTactil" />
+          <ScalarProperty Name="esPoseeMouse" ColumnName="esPoseeMouse" />
+          <ScalarProperty Name="esPoseeLectorPOSBanca" ColumnName="esPoseeLectorPOSBanca" />
+          <ScalarProperty Name="FechaUltimaConfiguracion" ColumnName="FechaUltimaConfiguracion" />
+          <ScalarProperty Name="esCliente_SolicitarEmail" ColumnName="esCliente_SolicitarEmail" />
+          <ScalarProperty Name="esCliente_SolicitarRIF" ColumnName="esCliente_SolicitarRIF" />
+          <ScalarProperty Name="esCliente_SolicitarTelefono" ColumnName="esCliente_SolicitarTelefono" />
+          <ScalarProperty Name="esSolicitarEmpleado" ColumnName="esSolicitarEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Dipositivo_VisorPrecios">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Dipositivo_VisorPrecios">
+        <MappingFragment StoreEntitySet="Estaciones_Dipositivo_VisorPrecios">
+          <ScalarProperty Name="id_Estaciones_Dipositivo_VisorPrecios" ColumnName="id_Estaciones_Dipositivo_VisorPrecios" />
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="Id_VisorPreciosModelo" ColumnName="Id_VisorPreciosModelo" />
+          <ScalarProperty Name="id_VisorPreciosVendor" ColumnName="id_VisorPreciosVendor" />
+          <ScalarProperty Name="esVisorPreciosMonitor" ColumnName="esVisorPreciosMonitor" />
+          <ScalarProperty Name="Linea1" ColumnName="Linea1" />
+          <ScalarProperty Name="Linea2" ColumnName="Linea2" />
+          <ScalarProperty Name="Linea3" ColumnName="Linea3" />
+          <ScalarProperty Name="Linea4" ColumnName="Linea4" />
+          <ScalarProperty Name="PuertoComunicaciones" ColumnName="PuertoComunicaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Dispositivo_Balanza">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Dispositivo_Balanza">
+        <MappingFragment StoreEntitySet="Estaciones_Dispositivo_Balanza">
+          <ScalarProperty Name="id_Estaciones_Dispositivo_Balanza" ColumnName="id_Estaciones_Dispositivo_Balanza" />
+          <ScalarProperty Name="id_DefBalanzaModelo" ColumnName="id_DefBalanzaModelo" />
+          <ScalarProperty Name="id_DefBalanza" ColumnName="id_DefBalanza" />
+          <ScalarProperty Name="id_Estacion" ColumnName="id_Estacion" />
+          <ScalarProperty Name="AnchoCodigoArticulo" ColumnName="AnchoCodigoArticulo" />
+          <ScalarProperty Name="AnchoValorPeso" ColumnName="AnchoValorPeso" />
+          <ScalarProperty Name="CodigoBalanza" ColumnName="CodigoBalanza" />
+          <ScalarProperty Name="esLeerCodigo" ColumnName="esLeerCodigo" />
+          <ScalarProperty Name="esPuertoCOM" ColumnName="esPuertoCOM" />
+          <ScalarProperty Name="NombrePuerto" ColumnName="NombrePuerto" />
+          <ScalarProperty Name="Parametros" ColumnName="Parametros" />
+          <ScalarProperty Name="PosicionFinCodigoArticulo" ColumnName="PosicionFinCodigoArticulo" />
+          <ScalarProperty Name="PosicionFinPesoDecimal" ColumnName="PosicionFinPesoDecimal" />
+          <ScalarProperty Name="PosicionFinPesoEntero" ColumnName="PosicionFinPesoEntero" />
+          <ScalarProperty Name="PosicionIniCodigoArticulo" ColumnName="PosicionIniCodigoArticulo" />
+          <ScalarProperty Name="PosicionIniPesoDecimal" ColumnName="PosicionIniPesoDecimal" />
+          <ScalarProperty Name="PosicionIniPesoEntero" ColumnName="PosicionIniPesoEntero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Dispositivo_Firma">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Dispositivo_Firma">
+        <MappingFragment StoreEntitySet="Estaciones_Dispositivo_Firma">
+          <ScalarProperty Name="id_Estaciones_Dispositivo_Firma" ColumnName="id_Estaciones_Dispositivo_Firma" />
+          <ScalarProperty Name="Bus" ColumnName="Bus" />
+          <ScalarProperty Name="BusType" ColumnName="BusType" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="Device" ColumnName="Device" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="SubSystemDeviceName" ColumnName="SubSystemDeviceName" />
+          <ScalarProperty Name="SubSystemVendor" ColumnName="SubSystemVendor" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="WindowsName" ColumnName="WindowsName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Dispositivo_GavetaDinero">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Dispositivo_GavetaDinero">
+        <MappingFragment StoreEntitySet="Estaciones_Dispositivo_GavetaDinero">
+          <ScalarProperty Name="id_Estaciones_Dispositivo_GavetaDinero" ColumnName="id_Estaciones_Dispositivo_GavetaDinero" />
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="Comando" ColumnName="Comando" />
+          <ScalarProperty Name="esGavetaDineroFiscal" ColumnName="esGavetaDineroFiscal" />
+          <ScalarProperty Name="PuertoComunicaciones" ColumnName="PuertoComunicaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Dispositivo_Impresora">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Dispositivo_Impresora">
+        <MappingFragment StoreEntitySet="Estaciones_Dispositivo_Impresora">
+          <ScalarProperty Name="id_Estaciones_Dispositivo_Impresora" ColumnName="id_Estaciones_Dispositivo_Impresora" />
+          <ScalarProperty Name="id_DefImpresoraModelo" ColumnName="id_DefImpresoraModelo" />
+          <ScalarProperty Name="id_DefImpresoraVendor" ColumnName="id_DefImpresoraVendor" />
+          <ScalarProperty Name="id_DefTipoImpresora" ColumnName="id_DefTipoImpresora" />
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="Encabezado1" ColumnName="Encabezado1" />
+          <ScalarProperty Name="Encabezado2" ColumnName="Encabezado2" />
+          <ScalarProperty Name="Encabezado3" ColumnName="Encabezado3" />
+          <ScalarProperty Name="Encabezado4" ColumnName="Encabezado4" />
+          <ScalarProperty Name="Encabezado5" ColumnName="Encabezado5" />
+          <ScalarProperty Name="Encabezado6" ColumnName="Encabezado6" />
+          <ScalarProperty Name="esCommPort" ColumnName="esCommPort" />
+          <ScalarProperty Name="esIFiscal" ColumnName="esIFiscal" />
+          <ScalarProperty Name="esImprimirDatosEmpresa" ColumnName="esImprimirDatosEmpresa" />
+          <ScalarProperty Name="esImprimirEmpleado" ColumnName="esImprimirEmpleado" />
+          <ScalarProperty Name="esImprimirNropedido" ColumnName="esImprimirNropedido" />
+          <ScalarProperty Name="esMsjPiePagina" ColumnName="esMsjPiePagina" />
+          <ScalarProperty Name="esNConsumo" ColumnName="esNConsumo" />
+          <ScalarProperty Name="esRemoto" ColumnName="esRemoto" />
+          <ScalarProperty Name="esUsaSpooler" ColumnName="esUsaSpooler" />
+          <ScalarProperty Name="nColumnas" ColumnName="nColumnas" />
+          <ScalarProperty Name="Nconsumo_esForzarImpresion" ColumnName="Nconsumo_esForzarImpresion" />
+          <ScalarProperty Name="Nconsumo_esImpEncabezado" ColumnName="Nconsumo_esImpEncabezado" />
+          <ScalarProperty Name="Nconsumo_esImpNombreEmpleado" ColumnName="Nconsumo_esImpNombreEmpleado" />
+          <ScalarProperty Name="Nconsumo_esImpopcionPropina" ColumnName="Nconsumo_esImpopcionPropina" />
+          <ScalarProperty Name="Nconsumo_esImpPieCliente" ColumnName="Nconsumo_esImpPieCliente" />
+          <ScalarProperty Name="Nconsumo_esImpPrecios" ColumnName="Nconsumo_esImpPrecios" />
+          <ScalarProperty Name="Nconsumo_esImpPreciosConIVA" ColumnName="Nconsumo_esImpPreciosConIVA" />
+          <ScalarProperty Name="Nconsumo_esImpTotalConIVA" ColumnName="Nconsumo_esImpTotalConIVA" />
+          <ScalarProperty Name="Nconsumo_MsjPiePagina" ColumnName="Nconsumo_MsjPiePagina" />
+          <ScalarProperty Name="NConsumo_PuertoComunicaciones" ColumnName="NConsumo_PuertoComunicaciones" />
+          <ScalarProperty Name="NombrePuerto" ColumnName="NombrePuerto" />
+          <ScalarProperty Name="PiePagina1" ColumnName="PiePagina1" />
+          <ScalarProperty Name="PiePagina2" ColumnName="PiePagina2" />
+          <ScalarProperty Name="PiePagina3" ColumnName="PiePagina3" />
+          <ScalarProperty Name="PiePagina4" ColumnName="PiePagina4" />
+          <ScalarProperty Name="PiePagina5" ColumnName="PiePagina5" />
+          <ScalarProperty Name="PiePagina6" ColumnName="PiePagina6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Reportes">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Reportes">
+        <MappingFragment StoreEntitySet="Estaciones_Reportes">
+          <ScalarProperty Name="ID_Estacion_Reportes" ColumnName="ID_Estacion_Reportes" />
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="arch_Clientes" ColumnName="arch_Clientes" />
+          <ScalarProperty Name="arch_Facturas" ColumnName="arch_Facturas" />
+          <ScalarProperty Name="arch_Servicios" ColumnName="arch_Servicios" />
+          <ScalarProperty Name="ImpReporte_Clientes" ColumnName="ImpReporte_Clientes" />
+          <ScalarProperty Name="ImpReporte_Facturas" ColumnName="ImpReporte_Facturas" />
+          <ScalarProperty Name="ImpReporte_Movimientos" ColumnName="ImpReporte_Movimientos" />
+          <ScalarProperty Name="ImpReporte_Servicios" ColumnName="ImpReporte_Servicios" />
+          <ScalarProperty Name="nCopias_Clientes" ColumnName="nCopias_Clientes" />
+          <ScalarProperty Name="nCopias_Facturas" ColumnName="nCopias_Facturas" />
+          <ScalarProperty Name="nCopias_Movimientos" ColumnName="nCopias_Movimientos" />
+          <ScalarProperty Name="nCopias_Servicios" ColumnName="nCopias_Servicios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Sesiones">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Sesiones">
+        <MappingFragment StoreEntitySet="Estaciones_Sesiones">
+          <ScalarProperty Name="id_Estaciones_Sesiones" ColumnName="id_Estaciones_Sesiones" />
+          <ScalarProperty Name="id_Empleados" ColumnName="id_Empleados" />
+          <ScalarProperty Name="id_estaciones" ColumnName="id_estaciones" />
+          <ScalarProperty Name="id_Cajas" ColumnName="id_Cajas" />
+          <ScalarProperty Name="id_Usuarios" ColumnName="id_Usuarios" />
+          <ScalarProperty Name="esEstacionActiva" ColumnName="esEstacionActiva" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IPEstacion" ColumnName="IPEstacion" />
+          <ScalarProperty Name="ModuloActual" ColumnName="ModuloActual" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Sesiones_Detalle">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Sesiones_Detalle">
+        <MappingFragment StoreEntitySet="Estaciones_Sesiones_Detalle">
+          <ScalarProperty Name="id_Estaciones_Sesiones_Detalle" ColumnName="id_Estaciones_Sesiones_Detalle" />
+          <ScalarProperty Name="id_Estaciones_Sesiones" ColumnName="id_Estaciones_Sesiones" />
+          <ScalarProperty Name="id_ArchivoAsociado" ColumnName="id_ArchivoAsociado" />
+          <ScalarProperty Name="ArchivoAsociado" ColumnName="ArchivoAsociado" />
+          <ScalarProperty Name="esActualizar" ColumnName="esActualizar" />
+          <ScalarProperty Name="esAgregar" ColumnName="esAgregar" />
+          <ScalarProperty Name="esEditar" ColumnName="esEditar" />
+          <ScalarProperty Name="esEliminar" ColumnName="esEliminar" />
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="FechaInicial" ColumnName="FechaInicial" />
+          <ScalarProperty Name="ModuloActual" ColumnName="ModuloActual" />
+          <ScalarProperty Name="RegistroFinal" ColumnName="RegistroFinal" />
+          <ScalarProperty Name="RegistroOriginal" ColumnName="RegistroOriginal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas">
+        <MappingFragment StoreEntitySet="Facturas">
+          <ScalarProperty Name="id_Facturas" ColumnName="id_Facturas" />
+          <ScalarProperty Name="id_Cajas" ColumnName="id_Cajas" />
+          <ScalarProperty Name="id_Empleados" ColumnName="id_Empleados" />
+          <ScalarProperty Name="id_Clientes" ColumnName="id_Clientes" />
+          <ScalarProperty Name="id_Cajas_Cortes" ColumnName="id_Cajas_Cortes" />
+          <ScalarProperty Name="id_DefStatusFactura" ColumnName="id_DefStatusFactura" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+          <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+          <ScalarProperty Name="nroFactura" ColumnName="nroFactura" />
+          <ScalarProperty Name="nroFacturaIF" ColumnName="nroFacturaIF" />
+          <ScalarProperty Name="nroControl" ColumnName="nroControl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Descuentos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Descuentos">
+        <MappingFragment StoreEntitySet="Facturas_Descuentos">
+          <ScalarProperty Name="id_Facturas_Descuentos" ColumnName="id_Facturas_Descuentos" />
+          <ScalarProperty Name="id_TiposDescuento" ColumnName="id_TiposDescuento" />
+          <ScalarProperty Name="id_Facturas" ColumnName="id_Facturas" />
+          <ScalarProperty Name="TasaValor" ColumnName="TasaValor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Detalle">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Detalle">
+        <MappingFragment StoreEntitySet="Facturas_Detalle">
+          <ScalarProperty Name="id_Facturas_Detalle" ColumnName="id_Facturas_Detalle" />
+          <ScalarProperty Name="id_Facturas" ColumnName="id_Facturas" />
+          <ScalarProperty Name="id_Productos" ColumnName="id_Productos" />
+          <ScalarProperty Name="id_TiposProducto" ColumnName="id_TiposProducto" />
+          <ScalarProperty Name="id_DefTiposPrecio" ColumnName="id_DefTiposPrecio" />
+          <ScalarProperty Name="nroItem" ColumnName="nroItem" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="DescripcionOtro" ColumnName="DescripcionOtro" />
+          <ScalarProperty Name="MontoPrecio" ColumnName="MontoPrecio" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Detalle_Descuentos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Detalle_Descuentos">
+        <MappingFragment StoreEntitySet="Facturas_Detalle_Descuentos">
+          <ScalarProperty Name="id_Facturas_Detalle_Descuentos" ColumnName="id_Facturas_Detalle_Descuentos" />
+          <ScalarProperty Name="id_FacturaDetalle" ColumnName="id_FacturaDetalle" />
+          <ScalarProperty Name="id_TiposDescuento" ColumnName="id_TiposDescuento" />
+          <ScalarProperty Name="TasaValor" ColumnName="TasaValor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Detalle_Impuestos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Detalle_Impuestos">
+        <MappingFragment StoreEntitySet="Facturas_Detalle_Impuestos">
+          <ScalarProperty Name="id_Facturas_Detalle_Impuestos" ColumnName="id_Facturas_Detalle_Impuestos" />
+          <ScalarProperty Name="id_TiposImpuestos" ColumnName="id_TiposImpuestos" />
+          <ScalarProperty Name="id_Facturas_Detalle" ColumnName="id_Facturas_Detalle" />
+          <ScalarProperty Name="Tasa" ColumnName="Tasa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_IF">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_IF">
+        <MappingFragment StoreEntitySet="Facturas_IF">
+          <ScalarProperty Name="Id_Facturas_IF" ColumnName="Id_Facturas_IF" />
+          <ScalarProperty Name="Id_Factura" ColumnName="Id_Factura" />
+          <ScalarProperty Name="FechaIF" ColumnName="FechaIF" />
+          <ScalarProperty Name="NroRef_IF" ColumnName="NroRef_IF" />
+          <ScalarProperty Name="SerialIF" ColumnName="SerialIF" />
+          <ScalarProperty Name="RIF_IF" ColumnName="RIF_IF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Impuestos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Impuestos">
+        <MappingFragment StoreEntitySet="Facturas_Impuestos">
+          <ScalarProperty Name="id_Facturas_Impuestos" ColumnName="id_Facturas_Impuestos" />
+          <ScalarProperty Name="id_Facturas" ColumnName="id_Facturas" />
+          <ScalarProperty Name="Id_TiposImpuestos" ColumnName="Id_TiposImpuestos" />
+          <ScalarProperty Name="Tasa" ColumnName="Tasa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Modificadas">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Modificadas">
+        <MappingFragment StoreEntitySet="Facturas_Modificadas">
+          <ScalarProperty Name="id_Facturas_modificadas" ColumnName="id_Facturas_modificadas" />
+          <ScalarProperty Name="id_Estaciones_Sesiones" ColumnName="id_Estaciones_Sesiones" />
+          <ScalarProperty Name="id_Factura" ColumnName="id_Factura" />
+          <ScalarProperty Name="id_DefTipoModificacion" ColumnName="id_DefTipoModificacion" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Modificadas_IF">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Modificadas_IF">
+        <MappingFragment StoreEntitySet="Facturas_Modificadas_IF">
+          <ScalarProperty Name="id_Facturas_Modificadas_IF" ColumnName="id_Facturas_Modificadas_IF" />
+          <ScalarProperty Name="id_Facturas_Modificadas" ColumnName="id_Facturas_Modificadas" />
+          <ScalarProperty Name="Fecha_IF" ColumnName="Fecha_IF" />
+          <ScalarProperty Name="MontoTotal1" ColumnName="MontoTotal1" />
+          <ScalarProperty Name="MontoTotal2" ColumnName="MontoTotal2" />
+          <ScalarProperty Name="MontoTotal3" ColumnName="MontoTotal3" />
+          <ScalarProperty Name="NroRef_IF" ColumnName="NroRef_IF" />
+          <ScalarProperty Name="nroSerial_IF" ColumnName="nroSerial_IF" />
+          <ScalarProperty Name="RIF_IF" ColumnName="RIF_IF" />
+          <ScalarProperty Name="Tasa1" ColumnName="Tasa1" />
+          <ScalarProperty Name="Tasa2" ColumnName="Tasa2" />
+          <ScalarProperty Name="Tasa3" ColumnName="Tasa3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_Servicios">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_Servicios">
+        <MappingFragment StoreEntitySet="Facturas_Servicios">
+          <ScalarProperty Name="id_Facturas_Servicios" ColumnName="id_Facturas_Servicios" />
+          <ScalarProperty Name="id_Facturas" ColumnName="id_Facturas" />
+          <ScalarProperty Name="id_defStatusFactura" ColumnName="id_defStatusFactura" />
+          <ScalarProperty Name="id_Empleados" ColumnName="id_Empleados" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+          <ScalarProperty Name="FechaEntrada" ColumnName="FechaEntrada" />
+          <ScalarProperty Name="FechaTentativaEntrega" ColumnName="FechaTentativaEntrega" />
+          <ScalarProperty Name="NombreRecibe" ColumnName="NombreRecibe" />
+          <ScalarProperty Name="nroDiasGarantia" ColumnName="nroDiasGarantia" />
+          <ScalarProperty Name="nroRecibo" ColumnName="nroRecibo" />
+          <ScalarProperty Name="FechaAtencionServicio" ColumnName="FechaAtencionServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas_TiposPago">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Facturas_TiposPago">
+        <MappingFragment StoreEntitySet="Facturas_TiposPago">
+          <ScalarProperty Name="id_Facturas_TiposPago" ColumnName="id_Facturas_TiposPago" />
+          <ScalarProperty Name="id_Bancos" ColumnName="id_Bancos" />
+          <ScalarProperty Name="id_Facturas" ColumnName="id_Facturas" />
+          <ScalarProperty Name="id_TiposPago" ColumnName="id_TiposPago" />
+          <ScalarProperty Name="DescripicionDocumento" ColumnName="DescripicionDocumento" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="nroAprobacion" ColumnName="nroAprobacion" />
+          <ScalarProperty Name="nroDocumento" ColumnName="nroDocumento" />
+          <ScalarProperty Name="nroRecibo" ColumnName="nroRecibo" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupo_Usuarios">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Grupo_Usuarios">
+        <MappingFragment StoreEntitySet="Grupo_Usuarios">
+          <ScalarProperty Name="id_Grupo_Usuarios" ColumnName="id_Grupo_Usuarios" />
+          <ScalarProperty Name="id_DefTipoUsuarioNivel" ColumnName="id_DefTipoUsuarioNivel" />
+          <ScalarProperty Name="grupo_usuario" ColumnName="grupo_usuario" />
+          <ScalarProperty Name="esroot" ColumnName="esroot" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esAgregar" ColumnName="esAgregar" />
+          <ScalarProperty Name="esEliminar" ColumnName="esEliminar" />
+          <ScalarProperty Name="esModificar" ColumnName="esModificar" />
+          <ScalarProperty Name="esAccesoremoto" ColumnName="esAccesoremoto" />
+          <ScalarProperty Name="esListar" ColumnName="esListar" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licencias">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Licencias">
+        <MappingFragment StoreEntitySet="Licencias">
+          <ScalarProperty Name="id_Licencias" ColumnName="id_Licencias" />
+          <ScalarProperty Name="CodigoActivacion" ColumnName="CodigoActivacion" />
+          <ScalarProperty Name="CodigoRequerido" ColumnName="CodigoRequerido" />
+          <ScalarProperty Name="CodigoSerial" ColumnName="CodigoSerial" />
+          <ScalarProperty Name="hdd_Serial" ColumnName="hdd_Serial" />
+          <ScalarProperty Name="MotherBoard_Serial" ColumnName="MotherBoard_Serial" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
+          <ScalarProperty Name="SO_Version" ColumnName="SO_Version" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+          <ScalarProperty Name="esOnline" ColumnName="esOnline" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+          <ScalarProperty Name="FechaInstalacion" ColumnName="FechaInstalacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modulos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Modulos">
+        <MappingFragment StoreEntitySet="Modulos">
+          <ScalarProperty Name="id_modulos" ColumnName="id_modulos" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="modulo" ColumnName="modulo" />
+          <ScalarProperty Name="id_DefTemaModulo" ColumnName="id_DefTemaModulo" />
+          <ScalarProperty Name="C_top" ColumnName="_top" />
+          <ScalarProperty Name="C_left" ColumnName="_left" />
+          <ScalarProperty Name="topMost" ColumnName="topMost" />
+          <ScalarProperty Name="C_width" ColumnName="_width" />
+          <ScalarProperty Name="C_height" ColumnName="_height" />
+          <ScalarProperty Name="startPosition" ColumnName="startPosition" />
+          <ScalarProperty Name="modal" ColumnName="modal" />
+          <ScalarProperty Name="WindowsState" ColumnName="WindowsState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="id_Productos" ColumnName="id_Productos" />
+          <ScalarProperty Name="id_Productos_familias" ColumnName="id_Productos_familias" />
+          <ScalarProperty Name="id_Productos_Marcas" ColumnName="id_Productos_Marcas" />
+          <ScalarProperty Name="id_UnidadesMedida" ColumnName="id_UnidadesMedida" />
+          <ScalarProperty Name="cantidadUnidadVenta" ColumnName="cantidadUnidadVenta" />
+          <ScalarProperty Name="CodigoAdicional" ColumnName="CodigoAdicional" />
+          <ScalarProperty Name="CodigoBarras" ColumnName="CodigoBarras" />
+          <ScalarProperty Name="CodigoInterno" ColumnName="CodigoInterno" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaUltimaCompra" ColumnName="FechaUltimaCompra" />
+          <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
+          <ScalarProperty Name="FechaUltimaVenta" ColumnName="FechaUltimaVenta" />
+          <ScalarProperty Name="MargenGananciaPrecio1" ColumnName="MargenGananciaPrecio1" />
+          <ScalarProperty Name="MargenGananciaPrecio2" ColumnName="MargenGananciaPrecio2" />
+          <ScalarProperty Name="MargenGananciaPrecio3" ColumnName="MargenGananciaPrecio3" />
+          <ScalarProperty Name="MontoCostoPromedio" ColumnName="MontoCostoPromedio" />
+          <ScalarProperty Name="MontoPrecio1" ColumnName="MontoPrecio1" />
+          <ScalarProperty Name="MontoPrecio2" ColumnName="MontoPrecio2" />
+          <ScalarProperty Name="MontoPrecio3" ColumnName="MontoPrecio3" />
+          <ScalarProperty Name="MontoUltimoCosto" ColumnName="MontoUltimoCosto" />
+          <ScalarProperty Name="nDiasGarantia" ColumnName="nDiasGarantia" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Producto_DescripcionLarga" ColumnName="Producto_DescripcionLarga" />
+          <ScalarProperty Name="id_TiposProducto" ColumnName="id_TiposProducto" />
+          <ScalarProperty Name="Producto_LinkWeb" ColumnName="Producto_LinkWeb" />
+          <ScalarProperty Name="nStockMaximo" ColumnName="nStockMaximo" />
+          <ScalarProperty Name="nStockMinimo" ColumnName="nStockMinimo" />
+          <ScalarProperty Name="esAvisoStockMinimo" ColumnName="esAvisoStockMinimo" />
+          <ScalarProperty Name="esAvisoStockMaximo" ColumnName="esAvisoStockMaximo" />
+          <ScalarProperty Name="MedidaAlto" ColumnName="MedidaAlto" />
+          <ScalarProperty Name="MedidaAncho" ColumnName="MedidaAncho" />
+          <ScalarProperty Name="MedidaLargo" ColumnName="MedidaLargo" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esCodigoAlterno" ColumnName="esCodigoAlterno" />
+          <ScalarProperty Name="esCompuesto" ColumnName="esCompuesto" />
+          <ScalarProperty Name="esFavorito" ColumnName="esFavorito" />
+          <ScalarProperty Name="esGarantia" ColumnName="esGarantia" />
+          <ScalarProperty Name="esImportado" ColumnName="esImportado" />
+          <ScalarProperty Name="esInventario" ColumnName="esInventario" />
+          <ScalarProperty Name="esPideComentario" ColumnName="esPideComentario" />
+          <ScalarProperty Name="esPidePeso" ColumnName="esPidePeso" />
+          <ScalarProperty Name="esPidePrecio" ColumnName="esPidePrecio" />
+          <ScalarProperty Name="esPideTipoProducto" ColumnName="esPideTipoProducto" />
+          <ScalarProperty Name="esUsoInterno" ColumnName="esUsoInterno" />
+          <ScalarProperty Name="esControlVenta" ColumnName="esControlVenta" />
+          <ScalarProperty Name="nCantidadMaxventa" ColumnName="nCantidadMaxventa" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Calzado">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Calzado">
+        <MappingFragment StoreEntitySet="Productos_Calzado">
+          <ScalarProperty Name="Id_Productos_Calzado" ColumnName="Id_Productos_Calzado" />
+          <ScalarProperty Name="Id_Productos" ColumnName="Id_Productos" />
+          <ScalarProperty Name="esUsaColores" ColumnName="esUsaColores" />
+          <ScalarProperty Name="esUsaTallas" ColumnName="esUsaTallas" />
+          <ScalarProperty Name="esCalzado" ColumnName="esCalzado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Compuestos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Compuestos">
+        <MappingFragment StoreEntitySet="Productos_Compuestos">
+          <ScalarProperty Name="id_Productos_Compuestos" ColumnName="id_Productos_Compuestos" />
+          <ScalarProperty Name="id_Productos" ColumnName="id_Productos" />
+          <ScalarProperty Name="id_UnidadesMedida" ColumnName="id_UnidadesMedida" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Familias">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Familias">
+        <MappingFragment StoreEntitySet="Productos_Familias">
+          <ScalarProperty Name="id_Productos_Familias" ColumnName="id_Productos_Familias" />
+          <ScalarProperty Name="FamiliaProducto" ColumnName="FamiliaProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Farmacia">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Farmacia">
+        <MappingFragment StoreEntitySet="Productos_Farmacia">
+          <ScalarProperty Name="Id_Productos_Farmacia" ColumnName="Id_Productos_Farmacia" />
+          <ScalarProperty Name="Id_Productos" ColumnName="Id_Productos" />
+          <ScalarProperty Name="Id_DefTipoRecipeMedico" ColumnName="Id_DefTipoRecipeMedico" />
+          <ScalarProperty Name="esPideRecipeMedico" ColumnName="esPideRecipeMedico" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Impuestos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Impuestos">
+        <MappingFragment StoreEntitySet="Productos_Impuestos">
+          <ScalarProperty Name="Id_Productos_Impuestos" ColumnName="Id_Productos_Impuestos" />
+          <ScalarProperty Name="Id_Productos" ColumnName="Id_Productos" />
+          <ScalarProperty Name="Id_TiposImpuestos" ColumnName="Id_TiposImpuestos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Marcas">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Marcas">
+        <MappingFragment StoreEntitySet="Productos_Marcas">
+          <ScalarProperty Name="id_ProductoMarca" ColumnName="id_ProductoMarca" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
+          <ScalarProperty Name="DireccionWebFabricante" ColumnName="DireccionWebFabricante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_Supermercado">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Productos_Supermercado">
+        <MappingFragment StoreEntitySet="Productos_Supermercado">
+          <ScalarProperty Name="id_Productos_Supermercado" ColumnName="id_Productos_Supermercado" />
+          <ScalarProperty Name="id_Productos" ColumnName="id_Productos" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="esAlimento" ColumnName="esAlimento" />
+          <ScalarProperty Name="esPerecedero" ColumnName="esPerecedero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposComercios">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposComercios">
+        <MappingFragment StoreEntitySet="TiposComercios">
+          <ScalarProperty Name="ID_TiposComercios" ColumnName="ID_TiposComercios" />
+          <ScalarProperty Name="TipoComercio" ColumnName="TipoComercio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposDescuento">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposDescuento">
+        <MappingFragment StoreEntitySet="TiposDescuento">
+          <ScalarProperty Name="id_TiposDescuento" ColumnName="id_TiposDescuento" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="esDescuento" ColumnName="esDescuento" />
+          <ScalarProperty Name="TasaValor" ColumnName="TasaValor" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+          <ScalarProperty Name="esValor" ColumnName="esValor" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposEgreso_Caja">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposEgreso_Caja">
+        <MappingFragment StoreEntitySet="TiposEgreso_Caja">
+          <ScalarProperty Name="id_TiposEgreso_Caja" ColumnName="id_TiposEgreso_Caja" />
+          <ScalarProperty Name="TipoEgreso" ColumnName="TipoEgreso" />
+          <ScalarProperty Name="esPideComentario" ColumnName="esPideComentario" />
+          <ScalarProperty Name="esPideAutorizacion" ColumnName="esPideAutorizacion" />
+          <ScalarProperty Name="MontoMaximo" ColumnName="MontoMaximo" />
+          <ScalarProperty Name="MontoMinimo" ColumnName="MontoMinimo" />
+          <ScalarProperty Name="esImprimeRecibo" ColumnName="esImprimeRecibo" />
+          <ScalarProperty Name="esFiscal" ColumnName="esFiscal" />
+          <ScalarProperty Name="esPideID_asociado" ColumnName="esPideID_asociado" />
+          <ScalarProperty Name="esPideNroDoc_Asociado" ColumnName="esPideNroDoc_Asociado" />
+          <ScalarProperty Name="esPideNombreRecibe" ColumnName="esPideNombreRecibe" />
+          <ScalarProperty Name="esPideNombreEntrega" ColumnName="esPideNombreEntrega" />
+          <ScalarProperty Name="TablaAsociada" ColumnName="TablaAsociada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposImpuestos">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposImpuestos">
+        <MappingFragment StoreEntitySet="TiposImpuestos">
+          <ScalarProperty Name="Id_TiposImpuestos" ColumnName="Id_TiposImpuestos" />
+          <ScalarProperty Name="esIncluido" ColumnName="esIncluido" />
+          <ScalarProperty Name="FachaModificado" ColumnName="FachaModificado" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="Tasa" ColumnName="Tasa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposPago">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposPago">
+        <MappingFragment StoreEntitySet="TiposPago">
+          <ScalarProperty Name="id_TiposPago" ColumnName="id_TiposPago" />
+          <ScalarProperty Name="id_TiposPago_Doc" ColumnName="id_TiposPago_Doc" />
+          <ScalarProperty Name="tipoPago" ColumnName="tipoPago" />
+          <ScalarProperty Name="esBonoAlimentacion" ColumnName="esBonoAlimentacion" />
+          <ScalarProperty Name="esCredito" ColumnName="esCredito" />
+          <ScalarProperty Name="PorcentajeBanco" ColumnName="PorcentajeBanco" />
+          <ScalarProperty Name="ImagenArchivo" ColumnName="ImagenArchivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposPago_Doc">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposPago_Doc">
+        <MappingFragment StoreEntitySet="TiposPago_Doc">
+          <ScalarProperty Name="id_TipoPago_Doc" ColumnName="id_TipoPago_Doc" />
+          <ScalarProperty Name="TipoPago_Doc" ColumnName="TipoPago_Doc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposProducto">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposProducto">
+        <MappingFragment StoreEntitySet="TiposProducto">
+          <ScalarProperty Name="id_TiposProducto" ColumnName="id_TiposProducto" />
+          <ScalarProperty Name="tipoProducto" ColumnName="tipoProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposUnidadesMedida">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.TiposUnidadesMedida">
+        <MappingFragment StoreEntitySet="TiposUnidadesMedida">
+          <ScalarProperty Name="id_UnidadesMedida" ColumnName="id_UnidadesMedida" />
+          <ScalarProperty Name="id_world_UnidadesMedida" ColumnName="id_world_UnidadesMedida" />
+          <ScalarProperty Name="CantidadPredeterminada" ColumnName="CantidadPredeterminada" />
+          <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="id_Usuarios" ColumnName="id_Usuarios" />
+          <ScalarProperty Name="id_Empleados" ColumnName="id_Empleados" />
+          <ScalarProperty Name="id_grupo_usuarios" ColumnName="id_grupo_usuarios" />
+          <ScalarProperty Name="id_DefNivelAccesos" ColumnName="id_DefNivelAccesos" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esCaduca" ColumnName="esCaduca" />
+          <ScalarProperty Name="esLogged" ColumnName="esLogged" />
+          <ScalarProperty Name="fecha_caduca" ColumnName="fecha_caduca" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="id_Empresas_Sucursales" ColumnName="id_Empresas_Sucursales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios_detalle">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Usuarios_detalle">
+        <MappingFragment StoreEntitySet="Usuarios_detalle">
+          <ScalarProperty Name="id_Usuarios_detalle" ColumnName="id_Usuarios_detalle" />
+          <ScalarProperty Name="id_Usuarios" ColumnName="id_Usuarios" />
+          <ScalarProperty Name="id_DefUsuarioOperacion" ColumnName="id_DefUsuarioOperacion" />
+          <ScalarProperty Name="id_Modulos" ColumnName="id_Modulos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha_UltimoAcceso" ColumnName="Fecha_UltimoAcceso" />
+          <ScalarProperty Name="Fecha_login" ColumnName="Fecha_login" />
+          <ScalarProperty Name="esLogeado" ColumnName="esLogeado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios_roles">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Usuarios_roles">
+        <MappingFragment StoreEntitySet="Usuarios_roles">
+          <ScalarProperty Name="id_Usuarios_roles" ColumnName="id_Usuarios_roles" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="esAccesoremoto" ColumnName="esAccesoremoto" />
+          <ScalarProperty Name="esAgregar" ColumnName="esAgregar" />
+          <ScalarProperty Name="esEliminar" ColumnName="esEliminar" />
+          <ScalarProperty Name="esConsultar" ColumnName="esConsultar" />
+          <ScalarProperty Name="esModificar" ColumnName="esModificar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios_rolesModulo">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Usuarios_rolesModulo">
+        <MappingFragment StoreEntitySet="Usuarios_rolesModulo">
+          <ScalarProperty Name="id_usuarios_rolesModulos" ColumnName="id_usuarios_rolesModulos" />
+          <ScalarProperty Name="control_tag" ColumnName="control_tag" />
+          <ScalarProperty Name="esActivo" ColumnName="esActivo" />
+          <ScalarProperty Name="esAgregar" ColumnName="esAgregar" />
+          <ScalarProperty Name="esConsultar" ColumnName="esConsultar" />
+          <ScalarProperty Name="esEliminar" ColumnName="esEliminar" />
+          <ScalarProperty Name="esEnabled" ColumnName="esEnabled" />
+          <ScalarProperty Name="esModificar" ColumnName="esModificar" />
+          <ScalarProperty Name="esVisible" ColumnName="esVisible" />
+          <ScalarProperty Name="id_Modulos" ColumnName="id_Modulos" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ven_Municipios">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.ven_Municipios">
+        <MappingFragment StoreEntitySet="ven_Municipios">
+          <ScalarProperty Name="id_Ven_Municipios" ColumnName="id_Ven_Municipios" />
+          <ScalarProperty Name="id_Estados" ColumnName="id_Estados" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ven_Parroquias">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.ven_Parroquias">
+        <MappingFragment StoreEntitySet="ven_Parroquias">
+          <ScalarProperty Name="id_Parroquias" ColumnName="id_Parroquias" />
+          <ScalarProperty Name="id_Municipios" ColumnName="id_Municipios" />
+          <ScalarProperty Name="Parroquia" ColumnName="Parroquia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="world_Idiomas">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.world_Idiomas">
+        <MappingFragment StoreEntitySet="world_Idiomas">
+          <ScalarProperty Name="id_World_Idiomas" ColumnName="id_World_Idiomas" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="world_Localidades">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.world_Localidades">
+        <MappingFragment StoreEntitySet="world_Localidades">
+          <ScalarProperty Name="id_World_Localidades" ColumnName="id_World_Localidades" />
+          <ScalarProperty Name="id_World_Regiones" ColumnName="id_World_Regiones" />
+          <ScalarProperty Name="id_World_Paises" ColumnName="id_World_Paises" />
+          <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="exacto" ColumnName="exacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="world_Paises">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.world_Paises">
+        <MappingFragment StoreEntitySet="world_Paises">
+          <ScalarProperty Name="id_World_Paises" ColumnName="id_World_Paises" />
+          <ScalarProperty Name="id_World_Idiomas" ColumnName="id_World_Idiomas" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="y" ColumnName="y" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="world_Profesiones">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.world_Profesiones">
+        <MappingFragment StoreEntitySet="world_Profesiones">
+          <ScalarProperty Name="id_World_Profesiones" ColumnName="id_World_Profesiones" />
+          <ScalarProperty Name="Profesiones" ColumnName="Profesiones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="world_Regiones">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.world_Regiones">
+        <MappingFragment StoreEntitySet="world_Regiones">
+          <ScalarProperty Name="id_Regiones" ColumnName="id_Regiones" />
+          <ScalarProperty Name="id_World_Paises" ColumnName="id_World_Paises" />
+          <ScalarProperty Name="id_World_Idiomas" ColumnName="id_World_Idiomas" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="exacto" ColumnName="exacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="world_UnidadesMedida">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.world_UnidadesMedida">
+        <MappingFragment StoreEntitySet="world_UnidadesMedida">
+          <ScalarProperty Name="id_world_UnidadesMedida" ColumnName="id_world_UnidadesMedida" />
+          <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estaciones_Reportes_hoteles">
+      <EntityTypeMapping TypeName="kssERPSucursaldbModel.Estaciones_Reportes_hoteles">
+        <MappingFragment StoreEntitySet="Estaciones_Reportes_hoteles">
+          <ScalarProperty Name="Estaciones_Reportes_hoteles1" ColumnName="Estaciones_Reportes_hoteles" />
+          <ScalarProperty Name="id_Estaciones" ColumnName="id_Estaciones" />
+          <ScalarProperty Name="arch_CheckIn" ColumnName="arch_CheckIn" />
+          <ScalarProperty Name="arch_CheckOut" ColumnName="arch_CheckOut" />
+          <ScalarProperty Name="arch_Clientes" ColumnName="arch_Clientes" />
+          <ScalarProperty Name="arch_Facturas" ColumnName="arch_Facturas" />
+          <ScalarProperty Name="arch_Habitaciones" ColumnName="arch_Habitaciones" />
+          <ScalarProperty Name="arch_Movimientos" ColumnName="arch_Movimientos" />
+          <ScalarProperty Name="arch_PlanesTarifas" ColumnName="arch_PlanesTarifas" />
+          <ScalarProperty Name="arch_Reservas" ColumnName="arch_Reservas" />
+          <ScalarProperty Name="arch_Servicios" ColumnName="arch_Servicios" />
+          <ScalarProperty Name="ImpReporte_CheckIn" ColumnName="ImpReporte_CheckIn" />
+          <ScalarProperty Name="ImpReporte_CheckOut" ColumnName="ImpReporte_CheckOut" />
+          <ScalarProperty Name="ImpReporte_Clientes" ColumnName="ImpReporte_Clientes" />
+          <ScalarProperty Name="ImpReporte_Facturas" ColumnName="ImpReporte_Facturas" />
+          <ScalarProperty Name="ImpReporte_Habitaciones" ColumnName="ImpReporte_Habitaciones" />
+          <ScalarProperty Name="ImpReporte_Movimientos" ColumnName="ImpReporte_Movimientos" />
+          <ScalarProperty Name="ImpReporte_PlanesTarifas" ColumnName="ImpReporte_PlanesTarifas" />
+          <ScalarProperty Name="ImpReporte_Reservas" ColumnName="ImpReporte_Reservas" />
+          <ScalarProperty Name="ImpReporte_Servicios" ColumnName="ImpReporte_Servicios" />
+          <ScalarProperty Name="nCopias_CheckIn" ColumnName="nCopias_CheckIn" />
+          <ScalarProperty Name="nCopias_Checkout" ColumnName="nCopias_Checkout" />
+          <ScalarProperty Name="nCopias_Clientes" ColumnName="nCopias_Clientes" />
+          <ScalarProperty Name="nCopias_Facturas" ColumnName="nCopias_Facturas" />
+          <ScalarProperty Name="nCopias_Habitaciones" ColumnName="nCopias_Habitaciones" />
+          <ScalarProperty Name="nCopias_Movimientos" ColumnName="nCopias_Movimientos" />
+          <ScalarProperty Name="nCopias_PlanesTarifas" ColumnName="nCopias_PlanesTarifas" />
+          <ScalarProperty Name="nCopias_Reservas" ColumnName="nCopias_Reservas" />
+          <ScalarProperty Name="nCopias_Servicios" ColumnName="nCopias_Servicios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

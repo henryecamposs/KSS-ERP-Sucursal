@@ -1,0 +1,9 @@
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\bin\Debug\kssAppE3 Service.exe
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\bin\Debug\kssAppE3 Service.pdb
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\bin\Debug\Newtonsoft.Json.dll
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\bin\Debug\Newtonsoft.Json.xml
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\obj\Debug\kssAppE3 Service.csprojResolveAssemblyReference.cache
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\obj\Debug\kssAppE3_Service.ProjectInstaller.resources
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\obj\Debug\kssAppE3 Service.csproj.GenerateResource.Cache
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\obj\Debug\kssAppE3 Service.exe
+D:\Proyectos KSS\kss ERP Sucursal\kssAppE3 Service\obj\Debug\kssAppE3 Service.pdb

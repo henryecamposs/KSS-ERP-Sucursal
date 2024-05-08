@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>demoPaisApi</title>
+
+    @section scripts
+{
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ordering: false,
+                    paging: false,
+                    searching: false,
+                    ajax: "/demoPaisesApi",
+                    columns: [
+                        { "data": "id_world_Paises" },
+                        { "data": "id_World_Idiomas" },
+                        { "data": "normal" },
+                        { "data": "x" },
+                        { "data": "y" }
+                    ]
+                });
+            });
+        </script>
+    }
+
+</head>
+<body>
+    <table id="example" class="table table-condensed table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID Pais</th>
+                <th>Idioma</th>
+                <th>Nombre</th>
+                <th>X</th>
+                <th>Y</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>

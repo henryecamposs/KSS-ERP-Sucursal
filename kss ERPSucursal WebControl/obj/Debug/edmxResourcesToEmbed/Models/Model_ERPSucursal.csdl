@@ -1,0 +1,2707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kssERPSucursaldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Almacenes">
+    <Key>
+      <PropertyRef Name="id_Almacenes" />
+    </Key>
+    <Property Name="id_Almacenes" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <Property Name="Almacen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Teleono" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Horarios" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="esDeposito" Type="Boolean" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="FechaActual" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Almacenes_Empresas_Sucursales" FromRole="Almacenes" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="Estaciones" Relationship="Self.FK_Estaciones_Almacenes" FromRole="Almacenes" ToRole="Estaciones" />
+  </EntityType>
+  <EntityType Name="Bancos">
+    <Key>
+      <PropertyRef Name="id_Bancos" />
+    </Key>
+    <Property Name="id_Bancos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_DefTipoCuenta" Type="Int16" Nullable="false" />
+    <Property Name="CGCuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SaldoActual" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="DepositosDiferidos" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="ChequesPostdatados" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="UltimaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProximoCheque" Type="Int32" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Facturas_TiposPago" Relationship="Self.FK_Facturas_TiposPago_Bancos" FromRole="Bancos" ToRole="Facturas_TiposPago" />
+  </EntityType>
+  <EntityType Name="Cajas">
+    <Key>
+      <PropertyRef Name="id_Cajas" />
+    </Key>
+    <Property Name="id_Cajas" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones" Type="Int16" />
+    <Property Name="id_Clientes" Type="Int64" Nullable="false" />
+    <Property Name="id_TiposPago" Type="Int16" Nullable="false" />
+    <Property Name="id_DefTiposPrecio" Type="Int16" Nullable="false" />
+    <Property Name="CantidadUnidadVentaPred" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="esAbierta" Type="Boolean" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="esAgruparItemsIdenticos" Type="Boolean" />
+    <Property Name="esNroFactura_Person" Type="Boolean" Nullable="false" />
+    <Property Name="esRemoto" Type="Boolean" />
+    <Property Name="FechaAnterior" Type="DateTime" Precision="3" />
+    <Property Name="FechaApertura" Type="DateTime" Precision="3" />
+    <Property Name="MontoApertura" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NroFacturaAnteior_IF" Type="Byte" />
+    <Property Name="NroFacturaAnterior" Type="Byte" Nullable="false" />
+    <Property Name="Serial_IF" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Estaciones" Relationship="Self.FK_Cajas_Estaciones" FromRole="Cajas" ToRole="Estaciones" />
+    <NavigationProperty Name="TiposPago" Relationship="Self.FK_Cajas_TiposPago" FromRole="Cajas" ToRole="TiposPago" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Estaciones_Sesiones_Cajas" FromRole="Cajas" ToRole="Estaciones_Sesiones" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Cajas" FromRole="Cajas" ToRole="Facturas" />
+  </EntityType>
+  <EntityType Name="Cajas_Cortes">
+    <Key>
+      <PropertyRef Name="id_Cajas_Cortes" />
+    </Key>
+    <Property Name="id_Cajas_Cortes" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones_Sesiones" Type="Int64" Nullable="false" />
+    <Property Name="id_FacturaFinal" Type="Int64" Nullable="false" />
+    <Property Name="id_FacturaInicial" Type="Int64" Nullable="false" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaApertura" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaCierre" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nroCorte" Type="Byte" Nullable="false" />
+    <Property Name="MontoApetura" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="MontoCuadreCaja" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Cajas_Cortes_Estaciones_Sesiones" FromRole="Cajas_Cortes" ToRole="Estaciones_Sesiones" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Cajas_Cortes_Facturas" FromRole="Cajas_Cortes" ToRole="Facturas" />
+    <NavigationProperty Name="Facturas1" Relationship="Self.FK_Cajas_Cortes_Facturas1" FromRole="Cajas_Cortes" ToRole="Facturas" />
+    <NavigationProperty Name="Facturas2" Relationship="Self.FK_Cajas_Cortes_Facturas2" FromRole="Cajas_Cortes" ToRole="Facturas" />
+    <NavigationProperty Name="Facturas3" Relationship="Self.FK_Cajas_Cortes_Facturas3" FromRole="Cajas_Cortes" ToRole="Facturas" />
+    <NavigationProperty Name="Cajas_Cortes_IF" Relationship="Self.FK_Cajas_Cortes_IF_Cajas_Cortes" FromRole="Cajas_Cortes" ToRole="Cajas_Cortes_IF" />
+  </EntityType>
+  <EntityType Name="Cajas_Cortes_IF">
+    <Key>
+      <PropertyRef Name="id_Cajas_Cortes_IF" />
+    </Key>
+    <Property Name="id_Cajas_Cortes_IF" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Cajas_Cortes" Type="Int64" Nullable="false" />
+    <Property Name="RIF_IF" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FechaFinal_IF" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaInicial_IF" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+    <Property Name="nroCorteZ_IF" Type="Int32" Nullable="false" />
+    <Property Name="nroFacturaInicial_IF" Type="Int32" Nullable="false" />
+    <Property Name="nrofacturaFinal_IF" Type="Int32" Nullable="false" />
+    <Property Name="nroSerial_IF" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MontoTotal1" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="MontoTotal2" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="MontoTotal3" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="TasaIva1" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+    <Property Name="TasaIva2" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="TasaIva3" Type="Decimal" Precision="3" Scale="2" />
+    <NavigationProperty Name="Cajas_Cortes" Relationship="Self.FK_Cajas_Cortes_IF_Cajas_Cortes" FromRole="Cajas_Cortes_IF" ToRole="Cajas_Cortes" />
+    <NavigationProperty Name="Cajas_Egresos" Relationship="Self.FK_Cajas_Egresos_Cajas_Cortes_IF" FromRole="Cajas_Cortes_IF" ToRole="Cajas_Egresos" />
+  </EntityType>
+  <EntityType Name="Cajas_Egresos">
+    <Key>
+      <PropertyRef Name="id_Cajas_Egresos" />
+    </Key>
+    <Property Name="id_Cajas_Egresos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ArchivoAsociado" Type="Int16" />
+    <Property Name="id_Estaciones_Sesiones" Type="Int64" Nullable="false" />
+    <Property Name="id_TiposEgreso_Caja" Type="Int16" Nullable="false" />
+    <Property Name="id_Cajas_Cortes_IF" Type="Int64" />
+    <Property Name="id_Usuario_Autoriza" Type="Int16" />
+    <Property Name="FechaActural" Type="DateTime" Precision="3" />
+    <Property Name="FechaRecibo" Type="DateTime" Precision="3" />
+    <Property Name="MontoTotal" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="NombreEntrega" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NombreAsociado" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NombreRecibe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nroDocAsociado" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="nroReciboEgreso" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cajas_Cortes_IF" Relationship="Self.FK_Cajas_Egresos_Cajas_Cortes_IF" FromRole="Cajas_Egresos" ToRole="Cajas_Cortes_IF" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Cajas_Egresos_Estaciones_Sesiones" FromRole="Cajas_Egresos" ToRole="Estaciones_Sesiones" />
+    <NavigationProperty Name="TiposEgreso_Caja" Relationship="Self.FK_Cajas_Egresos_TiposEgreso_Caja" FromRole="Cajas_Egresos" ToRole="TiposEgreso_Caja" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Cajas_Egresos_Usuarios" FromRole="Cajas_Egresos" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="id_clientes" />
+    </Key>
+    <Property Name="id_clientes" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <Property Name="id_World_Localidades" Type="Int64" />
+    <Property Name="id_World_Regiones" Type="Int16" />
+    <Property Name="id_Ven_Municipios" Type="Int16" />
+    <Property Name="id_World__Paises" Type="Int16" />
+    <Property Name="id_Ven_Parroquias" Type="Int16" />
+    <Property Name="id_World_Profesiones" Type="Int16" />
+    <Property Name="id_TiposPago" Type="Int16" />
+    <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CI" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="esEmpresa" Type="Boolean" />
+    <Property Name="Nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pasaporte" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="telefono_movil" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Clientes_Empresas_Sucursales" FromRole="Clientes" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="TiposPago" Relationship="Self.FK_Clientes_TiposPago" FromRole="Clientes" ToRole="TiposPago" />
+    <NavigationProperty Name="ven_Municipios" Relationship="Self.FK_Clientes_ven_Municipios" FromRole="Clientes" ToRole="ven_Municipios" />
+    <NavigationProperty Name="world_Localidades" Relationship="Self.FK_Clientes_world_Localidades" FromRole="Clientes" ToRole="world_Localidades" />
+    <NavigationProperty Name="world_Localidades1" Relationship="Self.FK_Clientes_world_Localidades1" FromRole="Clientes" ToRole="world_Localidades" />
+    <NavigationProperty Name="world_Paises" Relationship="Self.FK_Clientes_world_Paises" FromRole="Clientes" ToRole="world_Paises" />
+    <NavigationProperty Name="world_Profesiones" Relationship="Self.FK_Clientes_world_Profesiones" FromRole="Clientes" ToRole="world_Profesiones" />
+    <NavigationProperty Name="world_Regiones" Relationship="Self.FK_Clientes_world_Regiones" FromRole="Clientes" ToRole="world_Regiones" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Clientes" FromRole="Clientes" ToRole="Facturas" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="id_Empleados" />
+    </Key>
+    <Property Name="id_Empleados" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <Property Name="id_World_localidades" Type="Int64" />
+    <Property Name="id_World_Regiones" Type="Int16" />
+    <Property Name="id_Ven_Municipios" Type="Int16" />
+    <Property Name="id_World_Paises" Type="Int16" Nullable="false" />
+    <Property Name="id_Ven_Parroquias" Type="Int16" />
+    <Property Name="id_World_Profesiones" Type="Int16" />
+    <Property Name="Apellidos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CI" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rif" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="codigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefono_movil" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="esActivo" Type="Boolean" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empleados_Empresas_Sucursales" FromRole="Empleados" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="ven_Municipios" Relationship="Self.FK_Empleados_ven_Municipios" FromRole="Empleados" ToRole="ven_Municipios" />
+    <NavigationProperty Name="ven_Parroquias" Relationship="Self.FK_Empleados_ven_Parroquias" FromRole="Empleados" ToRole="ven_Parroquias" />
+    <NavigationProperty Name="world_Localidades" Relationship="Self.FK_Empleados_world_Localidades" FromRole="Empleados" ToRole="world_Localidades" />
+    <NavigationProperty Name="world_Paises" Relationship="Self.FK_Empleados_world_Paises" FromRole="Empleados" ToRole="world_Paises" />
+    <NavigationProperty Name="world_Profesiones" Relationship="Self.FK_Empleados_world_Profesiones" FromRole="Empleados" ToRole="world_Profesiones" />
+    <NavigationProperty Name="world_Regiones" Relationship="Self.FK_Empleados_world_Regiones" FromRole="Empleados" ToRole="world_Regiones" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Estaciones_Sesiones_Empleados" FromRole="Empleados" ToRole="Estaciones_Sesiones" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Empleados" FromRole="Empleados" ToRole="Facturas" />
+    <NavigationProperty Name="Facturas_Servicios" Relationship="Self.FK_Facturas_Servicios_Empleados" FromRole="Empleados" ToRole="Facturas_Servicios" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="id_empresas" />
+    </Key>
+    <Property Name="id_empresas" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_world_localidades" Type="Int64" />
+    <Property Name="id_world_Regiones" Type="Int16" Nullable="false" />
+    <Property Name="id_World_Idiomas" Type="Int16" />
+    <Property Name="id_ven_municipios" Type="Int16" />
+    <Property Name="id_world_paises" Type="Int16" />
+    <Property Name="id_ven_parroquias" Type="Int16" />
+    <Property Name="id_tiposComercio" Type="Int16" Nullable="false" />
+    <Property Name="codigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="ImagenArchivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nit" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="rif" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefonos" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="telefonosContacto" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_Empresas" FromRole="Empresas" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="TiposComercios" Relationship="Self.FK_Empresas_TiposComercios" FromRole="Empresas" ToRole="TiposComercios" />
+    <NavigationProperty Name="ven_Municipios" Relationship="Self.FK_Empresas_ven_Municipios" FromRole="Empresas" ToRole="ven_Municipios" />
+    <NavigationProperty Name="ven_Parroquias" Relationship="Self.FK_Empresas_ven_Parroquias" FromRole="Empresas" ToRole="ven_Parroquias" />
+    <NavigationProperty Name="world_Idiomas" Relationship="Self.FK_Empresas_world_Idiomas" FromRole="Empresas" ToRole="world_Idiomas" />
+    <NavigationProperty Name="world_Localidades" Relationship="Self.FK_Empresas_world_Localidades" FromRole="Empresas" ToRole="world_Localidades" />
+    <NavigationProperty Name="world_Paises" Relationship="Self.FK_Empresas_world_Paises" FromRole="Empresas" ToRole="world_Paises" />
+  </EntityType>
+  <EntityType Name="Empresas_Sucursales">
+    <Key>
+      <PropertyRef Name="id_Empresas_Sucursales" />
+    </Key>
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Empresas" Type="Int16" Nullable="false" />
+    <Property Name="id_tiposComercios" Type="Int16" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rif" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefonos" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_world_Regiones" Type="Int16" Nullable="false" />
+    <Property Name="id_world_Localidades" Type="Int64" Nullable="false" />
+    <Property Name="id_world_Idiomas" Type="Int16" Nullable="false" />
+    <Property Name="id_ven_Municipios" Type="Int16" Nullable="false" />
+    <Property Name="id_world_Paises" Type="Int16" Nullable="false" />
+    <Property Name="id_ven_Parroquias" Type="Int16" Nullable="false" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telefonosContacto" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codigoPostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImagenArchivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="esActivo" Type="Boolean" />
+    <NavigationProperty Name="Almacenes" Relationship="Self.FK_Almacenes_Empresas_Sucursales" FromRole="Empresas_Sucursales" ToRole="Almacenes" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Empresas_Sucursales" FromRole="Empresas_Sucursales" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_Empresas_Sucursales" FromRole="Empresas_Sucursales" ToRole="Empleados" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_Sucursales_Empresas" FromRole="Empresas_Sucursales" ToRole="Empresas" />
+    <NavigationProperty Name="TiposComercios" Relationship="Self.FK_Empresas_Sucursales_TiposComercios" FromRole="Empresas_Sucursales" ToRole="TiposComercios" />
+    <NavigationProperty Name="ven_Municipios" Relationship="Self.FK_Empresas_Sucursales_ven_Municipios" FromRole="Empresas_Sucursales" ToRole="ven_Municipios" />
+    <NavigationProperty Name="ven_Parroquias" Relationship="Self.FK_Empresas_Sucursales_ven_Parroquias" FromRole="Empresas_Sucursales" ToRole="ven_Parroquias" />
+    <NavigationProperty Name="world_Idiomas" Relationship="Self.FK_Empresas_Sucursales_world_Idiomas" FromRole="Empresas_Sucursales" ToRole="world_Idiomas" />
+    <NavigationProperty Name="world_Localidades" Relationship="Self.FK_Empresas_Sucursales_world_Localidades" FromRole="Empresas_Sucursales" ToRole="world_Localidades" />
+    <NavigationProperty Name="world_Regiones" Relationship="Self.FK_Empresas_Sucursales_world_Regiones" FromRole="Empresas_Sucursales" ToRole="world_Regiones" />
+    <NavigationProperty Name="Grupo_Usuarios" Relationship="Self.FK_Grupo_Usuarios_Empresas_Sucursales" FromRole="Empresas_Sucursales" ToRole="Grupo_Usuarios" />
+    <NavigationProperty Name="Licencias" Relationship="Self.FK_Licencias_Empresas_Sucursales" FromRole="Empresas_Sucursales" ToRole="Licencias" />
+    <NavigationProperty Name="TiposDescuento" Relationship="Self.FK_TiposDescuento_Empresas_Sucursales" FromRole="Empresas_Sucursales" ToRole="TiposDescuento" />
+  </EntityType>
+  <EntityType Name="Estaciones">
+    <Key>
+      <PropertyRef Name="id_Estaciones" />
+    </Key>
+    <Property Name="id_Estaciones" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Licencias" Type="Int16" Nullable="false" />
+    <Property Name="id_DefTipos_Estacion" Type="Int16" Nullable="false" />
+    <Property Name="id_DefTipos_PedirDatosCliente" Type="Int16" />
+    <Property Name="id_DefTipos_PrecioPredet" Type="Int16" Nullable="false" />
+    <Property Name="id_DefTipos_DescargaInventario" Type="Int16" />
+    <Property Name="id_Almacenes" Type="Int16" Nullable="false" />
+    <Property Name="esActivo" Type="Boolean" Nullable="false" />
+    <Property Name="esimprimirEgreso" Type="Boolean" Nullable="false" />
+    <Property Name="esImprimirFiscal" Type="Boolean" Nullable="false" />
+    <Property Name="esOffline" Type="Boolean" Nullable="false" />
+    <Property Name="esPedirCantidad" Type="Boolean" Nullable="false" />
+    <Property Name="esPreguntarCerrarApp" Type="Boolean" Nullable="false" />
+    <Property Name="esRemoto" Type="Boolean" Nullable="false" />
+    <Property Name="esRequierePassword" Type="Boolean" Nullable="false" />
+    <Property Name="IPEstacion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="NombreEquipo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NombreEstacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esImprimirNConsumo" Type="Boolean" Nullable="false" />
+    <Property Name="esPoseeTeclado" Type="Boolean" Nullable="false" />
+    <Property Name="esPoseeVisorPrecio" Type="Boolean" Nullable="false" />
+    <Property Name="esPoseeVisorPreciosMonitorExtra" Type="Boolean" Nullable="false" />
+    <Property Name="esPoseeGaveta" Type="Boolean" />
+    <Property Name="esPoseeCaptaHuella" Type="Boolean" />
+    <Property Name="esPoseePantallaTactil" Type="Boolean" />
+    <Property Name="esPoseeMouse" Type="Boolean" />
+    <Property Name="esPoseeLectorPOSBanca" Type="Boolean" />
+    <Property Name="FechaUltimaConfiguracion" Type="DateTime" Precision="3" />
+    <Property Name="esCliente_SolicitarEmail" Type="Boolean" />
+    <Property Name="esCliente_SolicitarRIF" Type="Boolean" />
+    <Property Name="esCliente_SolicitarTelefono" Type="Boolean" />
+    <Property Name="esSolicitarEmpleado" Type="Boolean" />
+    <NavigationProperty Name="Almacenes" Relationship="Self.FK_Estaciones_Almacenes" FromRole="Estaciones" ToRole="Almacenes" />
+    <NavigationProperty Name="Cajas" Relationship="Self.FK_Cajas_Estaciones" FromRole="Estaciones" ToRole="Cajas" />
+    <NavigationProperty Name="Licencias" Relationship="Self.FK_Estaciones_Licencias" FromRole="Estaciones" ToRole="Licencias" />
+    <NavigationProperty Name="Estaciones_Reportes" Relationship="Self.FK_Estaciones_Reportes_Estaciones" FromRole="Estaciones" ToRole="Estaciones_Reportes" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Estaciones_Sesiones_Estaciones" FromRole="Estaciones" ToRole="Estaciones_Sesiones" />
+  </EntityType>
+  <EntityType Name="Estaciones_Dipositivo_VisorPrecios">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Dipositivo_VisorPrecios" />
+    </Key>
+    <Property Name="id_Estaciones_Dipositivo_VisorPrecios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones" Type="Int32" />
+    <Property Name="Id_VisorPreciosModelo" Type="Int32" />
+    <Property Name="id_VisorPreciosVendor" Type="Int32" />
+    <Property Name="esVisorPreciosMonitor" Type="Boolean" Nullable="false" />
+    <Property Name="Linea1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Linea2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Linea3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Linea4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PuertoComunicaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Estaciones_Dispositivo_Balanza">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Dispositivo_Balanza" />
+    </Key>
+    <Property Name="id_Estaciones_Dispositivo_Balanza" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_DefBalanzaModelo" Type="Int16" />
+    <Property Name="id_DefBalanza" Type="Int16" />
+    <Property Name="id_Estacion" Type="Int16" Nullable="false" />
+    <Property Name="AnchoCodigoArticulo" Type="Byte" />
+    <Property Name="AnchoValorPeso" Type="Byte" />
+    <Property Name="CodigoBalanza" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="esLeerCodigo" Type="Boolean" />
+    <Property Name="esPuertoCOM" Type="Boolean" />
+    <Property Name="NombrePuerto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Parametros" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PosicionFinCodigoArticulo" Type="Byte" />
+    <Property Name="PosicionFinPesoDecimal" Type="Byte" />
+    <Property Name="PosicionFinPesoEntero" Type="Byte" />
+    <Property Name="PosicionIniCodigoArticulo" Type="Byte" />
+    <Property Name="PosicionIniPesoDecimal" Type="Byte" />
+    <Property Name="PosicionIniPesoEntero" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Estaciones_Dispositivo_Firma">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Dispositivo_Firma" />
+    </Key>
+    <Property Name="id_Estaciones_Dispositivo_Firma" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BusType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Device" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="SubSystemDeviceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubSystemVendor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WindowsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Estaciones_Dispositivo_GavetaDinero">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Dispositivo_GavetaDinero" />
+    </Key>
+    <Property Name="id_Estaciones_Dispositivo_GavetaDinero" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones" Type="Int16" />
+    <Property Name="Comando" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esGavetaDineroFiscal" Type="Boolean" Nullable="false" />
+    <Property Name="PuertoComunicaciones" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Estaciones_Dispositivo_Impresora">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Dispositivo_Impresora" />
+    </Key>
+    <Property Name="id_Estaciones_Dispositivo_Impresora" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_DefImpresoraModelo" Type="Int16" Nullable="false" />
+    <Property Name="id_DefImpresoraVendor" Type="Int16" Nullable="false" />
+    <Property Name="id_DefTipoImpresora" Type="Int16" />
+    <Property Name="id_Estaciones" Type="Int16" />
+    <Property Name="Encabezado1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Encabezado2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Encabezado3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Encabezado4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Encabezado5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Encabezado6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="esCommPort" Type="Boolean" />
+    <Property Name="esIFiscal" Type="Boolean" />
+    <Property Name="esImprimirDatosEmpresa" Type="Boolean" />
+    <Property Name="esImprimirEmpleado" Type="Boolean" />
+    <Property Name="esImprimirNropedido" Type="Boolean" />
+    <Property Name="esMsjPiePagina" Type="Boolean" />
+    <Property Name="esNConsumo" Type="Boolean" />
+    <Property Name="esRemoto" Type="Boolean" />
+    <Property Name="esUsaSpooler" Type="Boolean" />
+    <Property Name="nColumnas" Type="Byte" />
+    <Property Name="Nconsumo_esForzarImpresion" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpEncabezado" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpNombreEmpleado" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpopcionPropina" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpPieCliente" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpPrecios" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpPreciosConIVA" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_esImpTotalConIVA" Type="Boolean" Nullable="false" />
+    <Property Name="Nconsumo_MsjPiePagina" Type="Boolean" Nullable="false" />
+    <Property Name="NConsumo_PuertoComunicaciones" Type="Byte" />
+    <Property Name="NombrePuerto" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="PiePagina1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PiePagina2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PiePagina3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PiePagina4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PiePagina5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PiePagina6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Estaciones_Reportes">
+    <Key>
+      <PropertyRef Name="ID_Estacion_Reportes" />
+    </Key>
+    <Property Name="ID_Estacion_Reportes" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones" Type="Int16" Nullable="false" />
+    <Property Name="arch_Clientes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Facturas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Servicios" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ImpReporte_Clientes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Facturas" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Movimientos" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Servicios" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nCopias_Clientes" Type="Byte" />
+    <Property Name="nCopias_Facturas" Type="Byte" />
+    <Property Name="nCopias_Movimientos" Type="Byte" />
+    <Property Name="nCopias_Servicios" Type="Byte" />
+    <NavigationProperty Name="Estaciones" Relationship="Self.FK_Estaciones_Reportes_Estaciones" FromRole="Estaciones_Reportes" ToRole="Estaciones" />
+  </EntityType>
+  <EntityType Name="Estaciones_Sesiones">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Sesiones" />
+    </Key>
+    <Property Name="id_Estaciones_Sesiones" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Empleados" Type="Int16" />
+    <Property Name="id_estaciones" Type="Int16" Nullable="false" />
+    <Property Name="id_Cajas" Type="Int16" />
+    <Property Name="id_Usuarios" Type="Int16" />
+    <Property Name="esEstacionActiva" Type="Boolean" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Precision="3" />
+    <Property Name="IPEstacion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ModuloActual" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NombreEquipo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cajas" Relationship="Self.FK_Estaciones_Sesiones_Cajas" FromRole="Estaciones_Sesiones" ToRole="Cajas" />
+    <NavigationProperty Name="Cajas_Cortes" Relationship="Self.FK_Cajas_Cortes_Estaciones_Sesiones" FromRole="Estaciones_Sesiones" ToRole="Cajas_Cortes" />
+    <NavigationProperty Name="Cajas_Egresos" Relationship="Self.FK_Cajas_Egresos_Estaciones_Sesiones" FromRole="Estaciones_Sesiones" ToRole="Cajas_Egresos" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Estaciones_Sesiones_Empleados" FromRole="Estaciones_Sesiones" ToRole="Empleados" />
+    <NavigationProperty Name="Estaciones" Relationship="Self.FK_Estaciones_Sesiones_Estaciones" FromRole="Estaciones_Sesiones" ToRole="Estaciones" />
+    <NavigationProperty Name="Estaciones_Sesiones_Detalle" Relationship="Self.FK_Estaciones_Sesiones_Detalle_Estaciones_Sesiones" FromRole="Estaciones_Sesiones" ToRole="Estaciones_Sesiones_Detalle" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Estaciones_Sesiones_Usuarios" FromRole="Estaciones_Sesiones" ToRole="Usuarios" />
+    <NavigationProperty Name="Facturas_Modificadas" Relationship="Self.FK_Facturas_Modificadas_Estaciones_Sesiones" FromRole="Estaciones_Sesiones" ToRole="Facturas_Modificadas" />
+  </EntityType>
+  <EntityType Name="Estaciones_Sesiones_Detalle">
+    <Key>
+      <PropertyRef Name="id_Estaciones_Sesiones_Detalle" />
+    </Key>
+    <Property Name="id_Estaciones_Sesiones_Detalle" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones_Sesiones" Type="Int64" Nullable="false" />
+    <Property Name="id_ArchivoAsociado" Type="Int64" Nullable="false" />
+    <Property Name="ArchivoAsociado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esActualizar" Type="Boolean" />
+    <Property Name="esAgregar" Type="Boolean" />
+    <Property Name="esEditar" Type="Boolean" />
+    <Property Name="esEliminar" Type="Boolean" />
+    <Property Name="FechaFinal" Type="DateTime" Precision="3" />
+    <Property Name="FechaInicial" Type="DateTime" Precision="3" />
+    <Property Name="ModuloActual" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegistroFinal" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="RegistroOriginal" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Estaciones_Sesiones_Detalle_Estaciones_Sesiones" FromRole="Estaciones_Sesiones_Detalle" ToRole="Estaciones_Sesiones" />
+  </EntityType>
+  <EntityType Name="Facturas">
+    <Key>
+      <PropertyRef Name="id_Facturas" />
+    </Key>
+    <Property Name="id_Facturas" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Cajas" Type="Int16" />
+    <Property Name="id_Empleados" Type="Int16" />
+    <Property Name="id_Clientes" Type="Int64" />
+    <Property Name="id_Cajas_Cortes" Type="Int64" />
+    <Property Name="id_DefStatusFactura" Type="Int16" />
+    <Property Name="Comentarios" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaFactura" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nroFactura" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nroFacturaIF" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="nroControl" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cajas" Relationship="Self.FK_Facturas_Cajas" FromRole="Facturas" ToRole="Cajas" />
+    <NavigationProperty Name="Cajas_Cortes" Relationship="Self.FK_Cajas_Cortes_Facturas" FromRole="Facturas" ToRole="Cajas_Cortes" />
+    <NavigationProperty Name="Cajas_Cortes1" Relationship="Self.FK_Cajas_Cortes_Facturas1" FromRole="Facturas" ToRole="Cajas_Cortes" />
+    <NavigationProperty Name="Cajas_Cortes2" Relationship="Self.FK_Cajas_Cortes_Facturas2" FromRole="Facturas" ToRole="Cajas_Cortes" />
+    <NavigationProperty Name="Cajas_Cortes3" Relationship="Self.FK_Cajas_Cortes_Facturas3" FromRole="Facturas" ToRole="Cajas_Cortes" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Facturas_Clientes" FromRole="Facturas" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Facturas_Empleados" FromRole="Facturas" ToRole="Empleados" />
+    <NavigationProperty Name="Facturas_Descuentos" Relationship="Self.FK_Facturas_Descuentos_Facturas" FromRole="Facturas" ToRole="Facturas_Descuentos" />
+    <NavigationProperty Name="Facturas_Detalle" Relationship="Self.FK_Facturas_Detalle_Facturas" FromRole="Facturas" ToRole="Facturas_Detalle" />
+    <NavigationProperty Name="Facturas_IF" Relationship="Self.FK_Facturas_IF_Facturas" FromRole="Facturas" ToRole="Facturas_IF" />
+    <NavigationProperty Name="Facturas_Impuestos" Relationship="Self.FK_Facturas_Impuestos_Facturas" FromRole="Facturas" ToRole="Facturas_Impuestos" />
+    <NavigationProperty Name="Facturas_Modificadas" Relationship="Self.FK_Facturas_Modificadas_Facturas" FromRole="Facturas" ToRole="Facturas_Modificadas" />
+    <NavigationProperty Name="Facturas_Servicios" Relationship="Self.FK_Facturas_Servicios_Facturas" FromRole="Facturas" ToRole="Facturas_Servicios" />
+    <NavigationProperty Name="Facturas_TiposPago" Relationship="Self.FK_Facturas_TiposPago_Facturas" FromRole="Facturas" ToRole="Facturas_TiposPago" />
+  </EntityType>
+  <EntityType Name="Facturas_Descuentos">
+    <Key>
+      <PropertyRef Name="id_Facturas_Descuentos" />
+    </Key>
+    <Property Name="id_Facturas_Descuentos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_TiposDescuento" Type="Int16" Nullable="false" />
+    <Property Name="id_Facturas" Type="Int64" Nullable="false" />
+    <Property Name="TasaValor" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Descuentos_Facturas" FromRole="Facturas_Descuentos" ToRole="Facturas" />
+    <NavigationProperty Name="TiposDescuento" Relationship="Self.FK_Facturas_Descuentos_TiposDescuento" FromRole="Facturas_Descuentos" ToRole="TiposDescuento" />
+  </EntityType>
+  <EntityType Name="Facturas_Detalle">
+    <Key>
+      <PropertyRef Name="id_Facturas_Detalle" />
+    </Key>
+    <Property Name="id_Facturas_Detalle" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Facturas" Type="Int64" Nullable="false" />
+    <Property Name="id_Productos" Type="Int64" Nullable="false" />
+    <Property Name="id_TiposProducto" Type="Int16" />
+    <Property Name="id_DefTiposPrecio" Type="Byte" Nullable="false" />
+    <Property Name="nroItem" Type="Byte" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="DescripcionOtro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MontoPrecio" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Detalle_Facturas" FromRole="Facturas_Detalle" ToRole="Facturas" />
+    <NavigationProperty Name="Facturas_Detalle_Descuentos" Relationship="Self.FK_Facturas_Detalle_Descuentos_Facturas_Detalle" FromRole="Facturas_Detalle" ToRole="Facturas_Detalle_Descuentos" />
+    <NavigationProperty Name="Facturas_Detalle_Impuestos" Relationship="Self.FK_Facturas_Detalle_Impuestos_Facturas_Detalle" FromRole="Facturas_Detalle" ToRole="Facturas_Detalle_Impuestos" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Facturas_Detalle_Productos" FromRole="Facturas_Detalle" ToRole="Productos" />
+    <NavigationProperty Name="TiposProducto" Relationship="Self.FK_Facturas_Detalle_TiposProducto" FromRole="Facturas_Detalle" ToRole="TiposProducto" />
+  </EntityType>
+  <EntityType Name="Facturas_Detalle_Descuentos">
+    <Key>
+      <PropertyRef Name="id_Facturas_Detalle_Descuentos" />
+    </Key>
+    <Property Name="id_Facturas_Detalle_Descuentos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_FacturaDetalle" Type="Int64" Nullable="false" />
+    <Property Name="id_TiposDescuento" Type="Int16" Nullable="false" />
+    <Property Name="TasaValor" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Facturas_Detalle" Relationship="Self.FK_Facturas_Detalle_Descuentos_Facturas_Detalle" FromRole="Facturas_Detalle_Descuentos" ToRole="Facturas_Detalle" />
+    <NavigationProperty Name="TiposDescuento" Relationship="Self.FK_Facturas_Detalle_Descuentos_TiposDescuento" FromRole="Facturas_Detalle_Descuentos" ToRole="TiposDescuento" />
+  </EntityType>
+  <EntityType Name="Facturas_Detalle_Impuestos">
+    <Key>
+      <PropertyRef Name="id_Facturas_Detalle_Impuestos" />
+    </Key>
+    <Property Name="id_Facturas_Detalle_Impuestos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_TiposImpuestos" Type="Int16" Nullable="false" />
+    <Property Name="id_Facturas_Detalle" Type="Int64" Nullable="false" />
+    <Property Name="Tasa" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Facturas_Detalle" Relationship="Self.FK_Facturas_Detalle_Impuestos_Facturas_Detalle" FromRole="Facturas_Detalle_Impuestos" ToRole="Facturas_Detalle" />
+    <NavigationProperty Name="TiposImpuestos" Relationship="Self.FK_Facturas_Detalle_Impuestos_TiposImpuestos" FromRole="Facturas_Detalle_Impuestos" ToRole="TiposImpuestos" />
+  </EntityType>
+  <EntityType Name="Facturas_IF">
+    <Key>
+      <PropertyRef Name="Id_Facturas_IF" />
+    </Key>
+    <Property Name="Id_Facturas_IF" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Factura" Type="Int64" Nullable="false" />
+    <Property Name="FechaIF" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NroRef_IF" Type="Int32" Nullable="false" />
+    <Property Name="SerialIF" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RIF_IF" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_IF_Facturas" FromRole="Facturas_IF" ToRole="Facturas" />
+  </EntityType>
+  <EntityType Name="Facturas_Impuestos">
+    <Key>
+      <PropertyRef Name="id_Facturas_Impuestos" />
+    </Key>
+    <Property Name="id_Facturas_Impuestos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Facturas" Type="Int64" Nullable="false" />
+    <Property Name="Id_TiposImpuestos" Type="Int16" Nullable="false" />
+    <Property Name="Tasa" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Impuestos_Facturas" FromRole="Facturas_Impuestos" ToRole="Facturas" />
+    <NavigationProperty Name="TiposImpuestos" Relationship="Self.FK_Facturas_Impuestos_TiposImpuestos" FromRole="Facturas_Impuestos" ToRole="TiposImpuestos" />
+  </EntityType>
+  <EntityType Name="Facturas_Modificadas">
+    <Key>
+      <PropertyRef Name="id_Facturas_modificadas" />
+    </Key>
+    <Property Name="id_Facturas_modificadas" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones_Sesiones" Type="Int64" Nullable="false" />
+    <Property Name="id_Factura" Type="Int64" Nullable="false" />
+    <Property Name="id_DefTipoModificacion" Type="Int16" Nullable="false" />
+    <Property Name="Observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Facturas_Modificadas_Estaciones_Sesiones" FromRole="Facturas_Modificadas" ToRole="Estaciones_Sesiones" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Modificadas_Facturas" FromRole="Facturas_Modificadas" ToRole="Facturas" />
+    <NavigationProperty Name="Facturas_Modificadas_IF" Relationship="Self.FK_Facturas_Modificadas_IF_Facturas_Modificadas" FromRole="Facturas_Modificadas" ToRole="Facturas_Modificadas_IF" />
+  </EntityType>
+  <EntityType Name="Facturas_Modificadas_IF">
+    <Key>
+      <PropertyRef Name="id_Facturas_Modificadas_IF" />
+    </Key>
+    <Property Name="id_Facturas_Modificadas_IF" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Facturas_Modificadas" Type="Int64" Nullable="false" />
+    <Property Name="Fecha_IF" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MontoTotal1" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="MontoTotal2" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="MontoTotal3" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="NroRef_IF" Type="Int32" Nullable="false" />
+    <Property Name="nroSerial_IF" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RIF_IF" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tasa1" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+    <Property Name="Tasa2" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="Tasa3" Type="Decimal" Precision="3" Scale="2" />
+    <NavigationProperty Name="Facturas_Modificadas" Relationship="Self.FK_Facturas_Modificadas_IF_Facturas_Modificadas" FromRole="Facturas_Modificadas_IF" ToRole="Facturas_Modificadas" />
+  </EntityType>
+  <EntityType Name="Facturas_Servicios">
+    <Key>
+      <PropertyRef Name="id_Facturas_Servicios" />
+    </Key>
+    <Property Name="id_Facturas_Servicios" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Facturas" Type="Int64" Nullable="false" />
+    <Property Name="id_defStatusFactura" Type="Int16" />
+    <Property Name="id_Empleados" Type="Int16" />
+    <Property Name="Comentarios" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="FechaEntrega" Type="DateTime" Precision="3" />
+    <Property Name="FechaEntrada" Type="DateTime" Precision="3" />
+    <Property Name="FechaTentativaEntrega" Type="DateTime" Precision="3" />
+    <Property Name="NombreRecibe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nroDiasGarantia" Type="Byte" />
+    <Property Name="nroRecibo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="FechaAtencionServicio" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Facturas_Servicios_Empleados" FromRole="Facturas_Servicios" ToRole="Empleados" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Servicios_Facturas" FromRole="Facturas_Servicios" ToRole="Facturas" />
+  </EntityType>
+  <EntityType Name="Facturas_TiposPago">
+    <Key>
+      <PropertyRef Name="id_Facturas_TiposPago" />
+    </Key>
+    <Property Name="id_Facturas_TiposPago" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Bancos" Type="Int16" />
+    <Property Name="id_Facturas" Type="Int64" Nullable="false" />
+    <Property Name="id_TiposPago" Type="Int16" Nullable="false" />
+    <Property Name="DescripicionDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="nroAprobacion" Type="Byte" />
+    <Property Name="nroDocumento" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="nroRecibo" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Bancos" Relationship="Self.FK_Facturas_TiposPago_Bancos" FromRole="Facturas_TiposPago" ToRole="Bancos" />
+    <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_TiposPago_Facturas" FromRole="Facturas_TiposPago" ToRole="Facturas" />
+    <NavigationProperty Name="TiposPago" Relationship="Self.FK_Facturas_TiposPago_TiposPago" FromRole="Facturas_TiposPago" ToRole="TiposPago" />
+  </EntityType>
+  <EntityType Name="Grupo_Usuarios">
+    <Key>
+      <PropertyRef Name="id_Grupo_Usuarios" />
+    </Key>
+    <Property Name="id_Grupo_Usuarios" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_DefTipoUsuarioNivel" Type="Int16" Nullable="false" />
+    <Property Name="grupo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esroot" Type="Boolean" Nullable="false" />
+    <Property Name="esActivo" Type="Boolean" Nullable="false" />
+    <Property Name="esAgregar" Type="Boolean" Nullable="false" />
+    <Property Name="esEliminar" Type="Boolean" Nullable="false" />
+    <Property Name="esModificar" Type="Boolean" Nullable="false" />
+    <Property Name="esAccesoremoto" Type="Boolean" Nullable="false" />
+    <Property Name="esListar" Type="Boolean" Nullable="false" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Grupo_Usuarios_Empresas_Sucursales" FromRole="Grupo_Usuarios" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Grupo_Usuarios" FromRole="Grupo_Usuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Licencias">
+    <Key>
+      <PropertyRef Name="id_Licencias" />
+    </Key>
+    <Property Name="id_Licencias" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoActivacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoRequerido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoSerial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="hdd_Serial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherBoard_Serial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NombreEquipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SistemaOperativo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SO_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="esOnline" Type="Boolean" />
+    <Property Name="esActivo" Type="Boolean" Nullable="false" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <Property Name="FechaInstalacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Licencias_Empresas_Sucursales" FromRole="Licencias" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="Estaciones" Relationship="Self.FK_Estaciones_Licencias" FromRole="Licencias" ToRole="Estaciones" />
+  </EntityType>
+  <EntityType Name="Modulos">
+    <Key>
+      <PropertyRef Name="id_modulos" />
+    </Key>
+    <Property Name="id_modulos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_archivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="modulo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_DefTemaModulo" Type="Int16" />
+    <Property Name="C_top" Type="Byte" />
+    <Property Name="C_left" Type="Byte" />
+    <Property Name="topMost" Type="Byte" />
+    <Property Name="C_width" Type="Byte" />
+    <Property Name="C_height" Type="Byte" />
+    <Property Name="startPosition" Type="Byte" />
+    <Property Name="modal" Type="Byte" />
+    <Property Name="WindowsState" Type="Byte" />
+    <NavigationProperty Name="Usuarios_rolesModulo" Relationship="Self.FK_Usuarios_rolesModulo_Modulos" FromRole="Modulos" ToRole="Usuarios_rolesModulo" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="id_Productos" />
+    </Key>
+    <Property Name="id_Productos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Productos_familias" Type="Int16" Nullable="false" />
+    <Property Name="id_Productos_Marcas" Type="Int16" />
+    <Property Name="id_UnidadesMedida" Type="Int16" Nullable="false" />
+    <Property Name="cantidadUnidadVenta" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="CodigoAdicional" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CodigoBarras" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodigoInterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimaCompra" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaUltimaVenta" Type="DateTime" Precision="3" />
+    <Property Name="MargenGananciaPrecio1" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="MargenGananciaPrecio2" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="MargenGananciaPrecio3" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="MontoCostoPromedio" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="MontoPrecio1" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="MontoPrecio2" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="MontoPrecio3" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="MontoUltimoCosto" Type="Decimal" Precision="38" Scale="4" />
+    <Property Name="nDiasGarantia" Type="Byte" />
+    <Property Name="Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Producto_DescripcionLarga" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id_TiposProducto" Type="Int16" />
+    <Property Name="Producto_LinkWeb" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nStockMaximo" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="nStockMinimo" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="esAvisoStockMinimo" Type="Boolean" />
+    <Property Name="esAvisoStockMaximo" Type="Boolean" />
+    <Property Name="MedidaAlto" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MedidaAncho" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MedidaLargo" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="esCodigoAlterno" Type="Boolean" />
+    <Property Name="esCompuesto" Type="Boolean" />
+    <Property Name="esFavorito" Type="Boolean" />
+    <Property Name="esGarantia" Type="Boolean" />
+    <Property Name="esImportado" Type="Boolean" />
+    <Property Name="esInventario" Type="Boolean" />
+    <Property Name="esPideComentario" Type="Boolean" />
+    <Property Name="esPidePeso" Type="Boolean" />
+    <Property Name="esPidePrecio" Type="Boolean" />
+    <Property Name="esPideTipoProducto" Type="Boolean" />
+    <Property Name="esUsoInterno" Type="Boolean" />
+    <Property Name="esControlVenta" Type="Boolean" />
+    <Property Name="nCantidadMaxventa" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Facturas_Detalle" Relationship="Self.FK_Facturas_Detalle_Productos" FromRole="Productos" ToRole="Facturas_Detalle" />
+    <NavigationProperty Name="Productos_Impuestos" Relationship="Self.FK_Productos_Impuestos_Productos" FromRole="Productos" ToRole="Productos_Impuestos" />
+    <NavigationProperty Name="Productos_Familias" Relationship="Self.FK_Productos_Productos_Familias" FromRole="Productos" ToRole="Productos_Familias" />
+    <NavigationProperty Name="Productos_Marcas" Relationship="Self.FK_Productos_Productos_Marcas" FromRole="Productos" ToRole="Productos_Marcas" />
+    <NavigationProperty Name="TiposProducto" Relationship="Self.FK_Productos_TiposProducto" FromRole="Productos" ToRole="TiposProducto" />
+    <NavigationProperty Name="TiposUnidadesMedida" Relationship="Self.FK_Productos_TiposUnidadesMedida" FromRole="Productos" ToRole="TiposUnidadesMedida" />
+  </EntityType>
+  <EntityType Name="Productos_Calzado">
+    <Key>
+      <PropertyRef Name="Id_Productos_Calzado" />
+    </Key>
+    <Property Name="Id_Productos_Calzado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Productos" Type="Int64" Nullable="false" />
+    <Property Name="esUsaColores" Type="Boolean" />
+    <Property Name="esUsaTallas" Type="Boolean" />
+    <Property Name="esCalzado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Productos_Compuestos">
+    <Key>
+      <PropertyRef Name="id_Productos_Compuestos" />
+    </Key>
+    <Property Name="id_Productos_Compuestos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Productos" Type="Int64" Nullable="false" />
+    <Property Name="id_UnidadesMedida" Type="Int16" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos_Familias">
+    <Key>
+      <PropertyRef Name="id_Productos_Familias" />
+    </Key>
+    <Property Name="id_Productos_Familias" Type="Int16" Nullable="false" />
+    <Property Name="FamiliaProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Productos_Productos_Familias" FromRole="Productos_Familias" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Productos_Farmacia">
+    <Key>
+      <PropertyRef Name="Id_Productos_Farmacia" />
+    </Key>
+    <Property Name="Id_Productos_Farmacia" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Productos" Type="Int64" Nullable="false" />
+    <Property Name="Id_DefTipoRecipeMedico" Type="Int16" />
+    <Property Name="esPideRecipeMedico" Type="Boolean" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Productos_Impuestos">
+    <Key>
+      <PropertyRef Name="Id_Productos_Impuestos" />
+    </Key>
+    <Property Name="Id_Productos_Impuestos" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Productos" Type="Int64" Nullable="false" />
+    <Property Name="Id_TiposImpuestos" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Productos_Impuestos_Productos" FromRole="Productos_Impuestos" ToRole="Productos" />
+    <NavigationProperty Name="TiposImpuestos" Relationship="Self.FK_Productos_Impuestos_TiposImpuestos" FromRole="Productos_Impuestos" ToRole="TiposImpuestos" />
+  </EntityType>
+  <EntityType Name="Productos_Marcas">
+    <Key>
+      <PropertyRef Name="id_ProductoMarca" />
+    </Key>
+    <Property Name="id_ProductoMarca" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DireccionWebFabricante" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Productos_Productos_Marcas" FromRole="Productos_Marcas" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Productos_Supermercado">
+    <Key>
+      <PropertyRef Name="id_Productos_Supermercado" />
+    </Key>
+    <Property Name="id_Productos_Supermercado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Productos" Type="Int64" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="esAlimento" Type="Boolean" />
+    <Property Name="esPerecedero" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TiposComercios">
+    <Key>
+      <PropertyRef Name="ID_TiposComercios" />
+    </Key>
+    <Property Name="ID_TiposComercios" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoComercio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_TiposComercios" FromRole="TiposComercios" ToRole="Empresas" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_TiposComercios" FromRole="TiposComercios" ToRole="Empresas_Sucursales" />
+  </EntityType>
+  <EntityType Name="TiposDescuento">
+    <Key>
+      <PropertyRef Name="id_TiposDescuento" />
+    </Key>
+    <Property Name="id_TiposDescuento" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descuento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esDescuento" Type="Boolean" Nullable="false" />
+    <Property Name="TasaValor" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="FechaActual" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="esValor" Type="Boolean" Nullable="false" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_TiposDescuento_Empresas_Sucursales" FromRole="TiposDescuento" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="Facturas_Descuentos" Relationship="Self.FK_Facturas_Descuentos_TiposDescuento" FromRole="TiposDescuento" ToRole="Facturas_Descuentos" />
+    <NavigationProperty Name="Facturas_Detalle_Descuentos" Relationship="Self.FK_Facturas_Detalle_Descuentos_TiposDescuento" FromRole="TiposDescuento" ToRole="Facturas_Detalle_Descuentos" />
+  </EntityType>
+  <EntityType Name="TiposEgreso_Caja">
+    <Key>
+      <PropertyRef Name="id_TiposEgreso_Caja" />
+    </Key>
+    <Property Name="id_TiposEgreso_Caja" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoEgreso" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esPideComentario" Type="Boolean" Nullable="false" />
+    <Property Name="esPideAutorizacion" Type="Boolean" Nullable="false" />
+    <Property Name="MontoMaximo" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="MontoMinimo" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
+    <Property Name="esImprimeRecibo" Type="Boolean" Nullable="false" />
+    <Property Name="esFiscal" Type="Boolean" Nullable="false" />
+    <Property Name="esPideID_asociado" Type="Boolean" Nullable="false" />
+    <Property Name="esPideNroDoc_Asociado" Type="Boolean" Nullable="false" />
+    <Property Name="esPideNombreRecibe" Type="Boolean" Nullable="false" />
+    <Property Name="esPideNombreEntrega" Type="Boolean" Nullable="false" />
+    <Property Name="TablaAsociada" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cajas_Egresos" Relationship="Self.FK_Cajas_Egresos_TiposEgreso_Caja" FromRole="TiposEgreso_Caja" ToRole="Cajas_Egresos" />
+  </EntityType>
+  <EntityType Name="TiposImpuestos">
+    <Key>
+      <PropertyRef Name="Id_TiposImpuestos" />
+    </Key>
+    <Property Name="Id_TiposImpuestos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="esIncluido" Type="Boolean" Nullable="false" />
+    <Property Name="FachaModificado" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Impuesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tasa" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Facturas_Detalle_Impuestos" Relationship="Self.FK_Facturas_Detalle_Impuestos_TiposImpuestos" FromRole="TiposImpuestos" ToRole="Facturas_Detalle_Impuestos" />
+    <NavigationProperty Name="Facturas_Impuestos" Relationship="Self.FK_Facturas_Impuestos_TiposImpuestos" FromRole="TiposImpuestos" ToRole="Facturas_Impuestos" />
+    <NavigationProperty Name="Productos_Impuestos" Relationship="Self.FK_Productos_Impuestos_TiposImpuestos" FromRole="TiposImpuestos" ToRole="Productos_Impuestos" />
+  </EntityType>
+  <EntityType Name="TiposPago">
+    <Key>
+      <PropertyRef Name="id_TiposPago" />
+    </Key>
+    <Property Name="id_TiposPago" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_TiposPago_Doc" Type="Int16" Nullable="false" />
+    <Property Name="tipoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="esBonoAlimentacion" Type="Boolean" />
+    <Property Name="esCredito" Type="Boolean" />
+    <Property Name="PorcentajeBanco" Type="Decimal" Precision="3" Scale="2" />
+    <Property Name="ImagenArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cajas" Relationship="Self.FK_Cajas_TiposPago" FromRole="TiposPago" ToRole="Cajas" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_TiposPago" FromRole="TiposPago" ToRole="Clientes" />
+    <NavigationProperty Name="Facturas_TiposPago" Relationship="Self.FK_Facturas_TiposPago_TiposPago" FromRole="TiposPago" ToRole="Facturas_TiposPago" />
+    <NavigationProperty Name="TiposPago_Doc" Relationship="Self.FK_TiposPago_TiposPago_Doc" FromRole="TiposPago" ToRole="TiposPago_Doc" />
+  </EntityType>
+  <EntityType Name="TiposPago_Doc">
+    <Key>
+      <PropertyRef Name="id_TipoPago_Doc" />
+    </Key>
+    <Property Name="id_TipoPago_Doc" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoPago_Doc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TiposPago" Relationship="Self.FK_TiposPago_TiposPago_Doc" FromRole="TiposPago_Doc" ToRole="TiposPago" />
+  </EntityType>
+  <EntityType Name="TiposProducto">
+    <Key>
+      <PropertyRef Name="id_TiposProducto" />
+    </Key>
+    <Property Name="id_TiposProducto" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Facturas_Detalle" Relationship="Self.FK_Facturas_Detalle_TiposProducto" FromRole="TiposProducto" ToRole="Facturas_Detalle" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Productos_TiposProducto" FromRole="TiposProducto" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="TiposUnidadesMedida">
+    <Key>
+      <PropertyRef Name="id_UnidadesMedida" />
+    </Key>
+    <Property Name="id_UnidadesMedida" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_world_UnidadesMedida" Type="Int16" />
+    <Property Name="CantidadPredeterminada" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="UnidadMedida" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Productos" Relationship="Self.FK_Productos_TiposUnidadesMedida" FromRole="TiposUnidadesMedida" ToRole="Productos" />
+    <NavigationProperty Name="world_UnidadesMedida" Relationship="Self.FK_TiposUnidadesMedida_world_UnidadesMedida" FromRole="TiposUnidadesMedida" ToRole="world_UnidadesMedida" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id_Usuarios" />
+    </Key>
+    <Property Name="id_Usuarios" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Empleados" Type="Int16" />
+    <Property Name="id_grupo_usuarios" Type="Int16" Nullable="false" />
+    <Property Name="id_DefNivelAccesos" Type="Int16" Nullable="false" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="esCaduca" Type="Boolean" />
+    <Property Name="esLogged" Type="Boolean" />
+    <Property Name="fecha_caduca" Type="DateTime" Precision="3" />
+    <Property Name="fecha_fin" Type="DateTime" Precision="3" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="3" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_Empresas_Sucursales" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Cajas_Egresos" Relationship="Self.FK_Cajas_Egresos_Usuarios" FromRole="Usuarios" ToRole="Cajas_Egresos" />
+    <NavigationProperty Name="Estaciones_Sesiones" Relationship="Self.FK_Estaciones_Sesiones_Usuarios" FromRole="Usuarios" ToRole="Estaciones_Sesiones" />
+    <NavigationProperty Name="Grupo_Usuarios" Relationship="Self.FK_Usuarios_Grupo_Usuarios" FromRole="Usuarios" ToRole="Grupo_Usuarios" />
+    <NavigationProperty Name="Usuarios_detalle" Relationship="Self.FK_Usuarios_detalle_Usuarios" FromRole="Usuarios" ToRole="Usuarios_detalle" />
+    <NavigationProperty Name="Usuarios_roles" Relationship="Self.FK_Usuarios_roles_Usuarios" FromRole="Usuarios" ToRole="Usuarios_roles" />
+    <NavigationProperty Name="Usuarios_rolesModulo" Relationship="Self.FK_Usuarios_rolesModulo_Usuarios" FromRole="Usuarios" ToRole="Usuarios_rolesModulo" />
+  </EntityType>
+  <EntityType Name="Usuarios_detalle">
+    <Key>
+      <PropertyRef Name="id_Usuarios_detalle" />
+    </Key>
+    <Property Name="id_Usuarios_detalle" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Usuarios" Type="Int16" Nullable="false" />
+    <Property Name="id_DefUsuarioOperacion" Type="Int16" Nullable="false" />
+    <Property Name="id_Modulos" Type="Int16" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_UltimoAcceso" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_login" Type="DateTime" Precision="3" />
+    <Property Name="esLogeado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_detalle_Usuarios" FromRole="Usuarios_detalle" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuarios_roles">
+    <Key>
+      <PropertyRef Name="id_Usuarios_roles" />
+    </Key>
+    <Property Name="id_Usuarios_roles" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int16" />
+    <Property Name="esAccesoremoto" Type="Boolean" />
+    <Property Name="esAgregar" Type="Boolean" />
+    <Property Name="esEliminar" Type="Boolean" />
+    <Property Name="esConsultar" Type="Boolean" />
+    <Property Name="esModificar" Type="Boolean" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_roles_Usuarios" FromRole="Usuarios_roles" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuarios_rolesModulo">
+    <Key>
+      <PropertyRef Name="id_usuarios_rolesModulos" />
+    </Key>
+    <Property Name="id_usuarios_rolesModulos" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="control_tag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="esActivo" Type="Boolean" />
+    <Property Name="esAgregar" Type="Boolean" />
+    <Property Name="esConsultar" Type="Boolean" />
+    <Property Name="esEliminar" Type="Boolean" />
+    <Property Name="esEnabled" Type="Boolean" />
+    <Property Name="esModificar" Type="Boolean" />
+    <Property Name="esVisible" Type="Boolean" />
+    <Property Name="id_Modulos" Type="Int16" Nullable="false" />
+    <Property Name="id_usuario" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Modulos" Relationship="Self.FK_Usuarios_rolesModulo_Modulos" FromRole="Usuarios_rolesModulo" ToRole="Modulos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_rolesModulo_Usuarios" FromRole="Usuarios_rolesModulo" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="ven_Municipios">
+    <Key>
+      <PropertyRef Name="id_Ven_Municipios" />
+    </Key>
+    <Property Name="id_Ven_Municipios" Type="Int16" Nullable="false" />
+    <Property Name="id_Estados" Type="Int16" Nullable="false" />
+    <Property Name="Municipio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_ven_Municipios" FromRole="ven_Municipios" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_ven_Municipios" FromRole="ven_Municipios" ToRole="Empleados" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_ven_Municipios" FromRole="ven_Municipios" ToRole="Empresas" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_ven_Municipios" FromRole="ven_Municipios" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="world_Regiones" Relationship="Self.FK_ven_Municipios_world_Regiones" FromRole="ven_Municipios" ToRole="world_Regiones" />
+    <NavigationProperty Name="ven_Parroquias" Relationship="Self.FK_ven_Parroquias_ven_Municipios" FromRole="ven_Municipios" ToRole="ven_Parroquias" />
+  </EntityType>
+  <EntityType Name="ven_Parroquias">
+    <Key>
+      <PropertyRef Name="id_Parroquias" />
+    </Key>
+    <Property Name="id_Parroquias" Type="Int16" Nullable="false" />
+    <Property Name="id_Municipios" Type="Int16" Nullable="false" />
+    <Property Name="Parroquia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_ven_Parroquias" FromRole="ven_Parroquias" ToRole="Empleados" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_ven_Parroquias" FromRole="ven_Parroquias" ToRole="Empresas" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_ven_Parroquias" FromRole="ven_Parroquias" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="ven_Municipios" Relationship="Self.FK_ven_Parroquias_ven_Municipios" FromRole="ven_Parroquias" ToRole="ven_Municipios" />
+  </EntityType>
+  <EntityType Name="world_Idiomas">
+    <Key>
+      <PropertyRef Name="id_World_Idiomas" />
+    </Key>
+    <Property Name="id_World_Idiomas" Type="Int16" Nullable="false" />
+    <Property Name="codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Idioma" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_world_Idiomas" FromRole="world_Idiomas" ToRole="Empresas" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_world_Idiomas" FromRole="world_Idiomas" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="world_Paises" Relationship="Self.FK_world_Paises_world_Idiomas" FromRole="world_Idiomas" ToRole="world_Paises" />
+  </EntityType>
+  <EntityType Name="world_Localidades">
+    <Key>
+      <PropertyRef Name="id_World_Localidades" />
+    </Key>
+    <Property Name="id_World_Localidades" Type="Int64" Nullable="false" />
+    <Property Name="id_World_Regiones" Type="Int16" Nullable="false" />
+    <Property Name="id_World_Paises" Type="Int16" Nullable="false" />
+    <Property Name="id_idioma" Type="Int16" Nullable="false" />
+    <Property Name="Localidad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="x" Type="Single" Nullable="false" />
+    <Property Name="y" Type="Single" Nullable="false" />
+    <Property Name="exacto" Type="Boolean" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_world_Localidades" FromRole="world_Localidades" ToRole="Clientes" />
+    <NavigationProperty Name="Clientes1" Relationship="Self.FK_Clientes_world_Localidades1" FromRole="world_Localidades" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_world_Localidades" FromRole="world_Localidades" ToRole="Empleados" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_world_Localidades" FromRole="world_Localidades" ToRole="Empresas" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_world_Localidades" FromRole="world_Localidades" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="world_Regiones" Relationship="Self.FK_world_Localidades_world_Regiones" FromRole="world_Localidades" ToRole="world_Regiones" />
+  </EntityType>
+  <EntityType Name="world_Paises">
+    <Key>
+      <PropertyRef Name="id_World_Paises" />
+    </Key>
+    <Property Name="id_World_Paises" Type="Int16" Nullable="false" />
+    <Property Name="id_World_Idiomas" Type="Int16" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="x" Type="Single" />
+    <Property Name="y" Type="Single" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_world_Paises" FromRole="world_Paises" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_world_Paises" FromRole="world_Paises" ToRole="Empleados" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_world_Paises" FromRole="world_Paises" ToRole="Empresas" />
+    <NavigationProperty Name="world_Idiomas" Relationship="Self.FK_world_Paises_world_Idiomas" FromRole="world_Paises" ToRole="world_Idiomas" />
+    <NavigationProperty Name="world_Regiones" Relationship="Self.FK_world_Regiones_world_Paises" FromRole="world_Paises" ToRole="world_Regiones" />
+  </EntityType>
+  <EntityType Name="world_Profesiones">
+    <Key>
+      <PropertyRef Name="id_World_Profesiones" />
+    </Key>
+    <Property Name="id_World_Profesiones" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Profesiones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_world_Profesiones" FromRole="world_Profesiones" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_world_Profesiones" FromRole="world_Profesiones" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="world_Regiones">
+    <Key>
+      <PropertyRef Name="id_Regiones" />
+    </Key>
+    <Property Name="id_Regiones" Type="Int16" Nullable="false" />
+    <Property Name="id_World_Paises" Type="Int16" Nullable="false" />
+    <Property Name="id_World_Idiomas" Type="Int16" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="x" Type="Single" Nullable="false" />
+    <Property Name="y" Type="Single" Nullable="false" />
+    <Property Name="exacto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_world_Regiones" FromRole="world_Regiones" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleados_world_Regiones" FromRole="world_Regiones" ToRole="Empleados" />
+    <NavigationProperty Name="Empresas_Sucursales" Relationship="Self.FK_Empresas_Sucursales_world_Regiones" FromRole="world_Regiones" ToRole="Empresas_Sucursales" />
+    <NavigationProperty Name="ven_Municipios" Relationship="Self.FK_ven_Municipios_world_Regiones" FromRole="world_Regiones" ToRole="ven_Municipios" />
+    <NavigationProperty Name="world_Localidades" Relationship="Self.FK_world_Localidades_world_Regiones" FromRole="world_Regiones" ToRole="world_Localidades" />
+    <NavigationProperty Name="world_Paises" Relationship="Self.FK_world_Regiones_world_Paises" FromRole="world_Regiones" ToRole="world_Paises" />
+  </EntityType>
+  <EntityType Name="world_UnidadesMedida">
+    <Key>
+      <PropertyRef Name="id_world_UnidadesMedida" />
+    </Key>
+    <Property Name="id_world_UnidadesMedida" Type="Int16" Nullable="false" />
+    <Property Name="UnidadMedida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TiposUnidadesMedida" Relationship="Self.FK_TiposUnidadesMedida_world_UnidadesMedida" FromRole="world_UnidadesMedida" ToRole="TiposUnidadesMedida" />
+  </EntityType>
+  <EntityType Name="Estaciones_Reportes_hoteles">
+    <Key>
+      <PropertyRef Name="Estaciones_Reportes_hoteles1" />
+      <PropertyRef Name="id_Estaciones" />
+    </Key>
+    <Property Name="Estaciones_Reportes_hoteles1" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Estaciones" Type="Int16" Nullable="false" />
+    <Property Name="arch_CheckIn" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_CheckOut" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Clientes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Facturas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Habitaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Movimientos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_PlanesTarifas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Reservas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="arch_Servicios" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ImpReporte_CheckIn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_CheckOut" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Clientes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Facturas" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Habitaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Movimientos" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_PlanesTarifas" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Reservas" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImpReporte_Servicios" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="nCopias_CheckIn" Type="Byte" />
+    <Property Name="nCopias_Checkout" Type="Byte" />
+    <Property Name="nCopias_Clientes" Type="Byte" />
+    <Property Name="nCopias_Facturas" Type="Byte" />
+    <Property Name="nCopias_Habitaciones" Type="Byte" />
+    <Property Name="nCopias_Movimientos" Type="Byte" />
+    <Property Name="nCopias_PlanesTarifas" Type="Byte" />
+    <Property Name="nCopias_Reservas" Type="Byte" />
+    <Property Name="nCopias_Servicios" Type="Byte" />
+  </EntityType>
+  <Association Name="FK_Almacenes_Empresas_Sucursales">
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="1" />
+    <End Role="Almacenes" Type="Self.Almacenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Principal>
+      <Dependent Role="Almacenes">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Almacenes">
+    <End Role="Almacenes" Type="Self.Almacenes" Multiplicity="1" />
+    <End Role="Estaciones" Type="Self.Estaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacenes">
+        <PropertyRef Name="id_Almacenes" />
+      </Principal>
+      <Dependent Role="Estaciones">
+        <PropertyRef Name="id_Almacenes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_TiposPago_Bancos">
+    <End Role="Bancos" Type="Self.Bancos" Multiplicity="0..1" />
+    <End Role="Facturas_TiposPago" Type="Self.Facturas_TiposPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bancos">
+        <PropertyRef Name="id_Bancos" />
+      </Principal>
+      <Dependent Role="Facturas_TiposPago">
+        <PropertyRef Name="id_Bancos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Estaciones">
+    <End Role="Estaciones" Type="Self.Estaciones" Multiplicity="0..1" />
+    <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones">
+        <PropertyRef Name="id_Estaciones" />
+      </Principal>
+      <Dependent Role="Cajas">
+        <PropertyRef Name="id_Estaciones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_TiposPago">
+    <End Role="TiposPago" Type="Self.TiposPago" Multiplicity="1" />
+    <End Role="Cajas" Type="Self.Cajas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposPago">
+        <PropertyRef Name="id_TiposPago" />
+      </Principal>
+      <Dependent Role="Cajas">
+        <PropertyRef Name="id_TiposPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Sesiones_Cajas">
+    <End Role="Cajas" Type="Self.Cajas" Multiplicity="0..1" />
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cajas">
+        <PropertyRef Name="id_Cajas" />
+      </Principal>
+      <Dependent Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Cajas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Cajas">
+    <End Role="Cajas" Type="Self.Cajas" Multiplicity="0..1" />
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cajas">
+        <PropertyRef Name="id_Cajas" />
+      </Principal>
+      <Dependent Role="Facturas">
+        <PropertyRef Name="id_Cajas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Cortes_Estaciones_Sesiones">
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="1" />
+    <End Role="Cajas_Cortes" Type="Self.Cajas_Cortes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Principal>
+      <Dependent Role="Cajas_Cortes">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Cortes_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Cajas_Cortes" Type="Self.Cajas_Cortes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Cajas_Cortes">
+        <PropertyRef Name="id_FacturaFinal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Cortes_Facturas1">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Cajas_Cortes" Type="Self.Cajas_Cortes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Cajas_Cortes">
+        <PropertyRef Name="id_FacturaInicial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Cortes_Facturas2">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Cajas_Cortes" Type="Self.Cajas_Cortes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Cajas_Cortes">
+        <PropertyRef Name="id_FacturaFinal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Cortes_Facturas3">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Cajas_Cortes" Type="Self.Cajas_Cortes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Cajas_Cortes">
+        <PropertyRef Name="id_FacturaInicial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Cortes_IF_Cajas_Cortes">
+    <End Role="Cajas_Cortes" Type="Self.Cajas_Cortes" Multiplicity="1" />
+    <End Role="Cajas_Cortes_IF" Type="Self.Cajas_Cortes_IF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cajas_Cortes">
+        <PropertyRef Name="id_Cajas_Cortes" />
+      </Principal>
+      <Dependent Role="Cajas_Cortes_IF">
+        <PropertyRef Name="id_Cajas_Cortes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Egresos_Cajas_Cortes_IF">
+    <End Role="Cajas_Cortes_IF" Type="Self.Cajas_Cortes_IF" Multiplicity="0..1" />
+    <End Role="Cajas_Egresos" Type="Self.Cajas_Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cajas_Cortes_IF">
+        <PropertyRef Name="id_Cajas_Cortes_IF" />
+      </Principal>
+      <Dependent Role="Cajas_Egresos">
+        <PropertyRef Name="id_Cajas_Cortes_IF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Egresos_Estaciones_Sesiones">
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="1" />
+    <End Role="Cajas_Egresos" Type="Self.Cajas_Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Principal>
+      <Dependent Role="Cajas_Egresos">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Egresos_TiposEgreso_Caja">
+    <End Role="TiposEgreso_Caja" Type="Self.TiposEgreso_Caja" Multiplicity="1" />
+    <End Role="Cajas_Egresos" Type="Self.Cajas_Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposEgreso_Caja">
+        <PropertyRef Name="id_TiposEgreso_Caja" />
+      </Principal>
+      <Dependent Role="Cajas_Egresos">
+        <PropertyRef Name="id_TiposEgreso_Caja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cajas_Egresos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Cajas_Egresos" Type="Self.Cajas_Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_Usuarios" />
+      </Principal>
+      <Dependent Role="Cajas_Egresos">
+        <PropertyRef Name="id_Usuario_Autoriza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Empresas_Sucursales">
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_TiposPago">
+    <End Role="TiposPago" Type="Self.TiposPago" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposPago">
+        <PropertyRef Name="id_TiposPago" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_TiposPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_ven_Municipios">
+    <End Role="ven_Municipios" Type="Self.ven_Municipios" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Municipios">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_world_Localidades">
+    <End Role="world_Localidades" Type="Self.world_Localidades" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Localidades">
+        <PropertyRef Name="id_World_Localidades" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_World_Localidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_world_Localidades1">
+    <End Role="world_Localidades" Type="Self.world_Localidades" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Localidades">
+        <PropertyRef Name="id_World_Localidades" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_World_Localidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_world_Paises">
+    <End Role="world_Paises" Type="Self.world_Paises" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Paises">
+        <PropertyRef Name="id_World_Paises" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_World__Paises" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_world_Profesiones">
+    <End Role="world_Profesiones" Type="Self.world_Profesiones" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Profesiones">
+        <PropertyRef Name="id_World_Profesiones" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_World_Profesiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_world_Regiones">
+    <End Role="world_Regiones" Type="Self.world_Regiones" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Regiones">
+        <PropertyRef Name="id_Regiones" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="id_World_Regiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Clientes">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="id_clientes" />
+      </Principal>
+      <Dependent Role="Facturas">
+        <PropertyRef Name="id_Clientes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_Empresas_Sucursales">
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_ven_Municipios">
+    <End Role="ven_Municipios" Type="Self.ven_Municipios" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Municipios">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_ven_Parroquias">
+    <End Role="ven_Parroquias" Type="Self.ven_Parroquias" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Parroquias">
+        <PropertyRef Name="id_Parroquias" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_Ven_Parroquias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_world_Localidades">
+    <End Role="world_Localidades" Type="Self.world_Localidades" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Localidades">
+        <PropertyRef Name="id_World_Localidades" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_World_localidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_world_Paises">
+    <End Role="world_Paises" Type="Self.world_Paises" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Paises">
+        <PropertyRef Name="id_World_Paises" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_World_Paises" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_world_Profesiones">
+    <End Role="world_Profesiones" Type="Self.world_Profesiones" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Profesiones">
+        <PropertyRef Name="id_World_Profesiones" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_World_Profesiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_world_Regiones">
+    <End Role="world_Regiones" Type="Self.world_Regiones" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Regiones">
+        <PropertyRef Name="id_Regiones" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="id_World_Regiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Sesiones_Empleados">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="id_Empleados" />
+      </Principal>
+      <Dependent Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Empleados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Empleados">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="id_Empleados" />
+      </Principal>
+      <Dependent Role="Facturas">
+        <PropertyRef Name="id_Empleados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Servicios_Empleados">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+    <End Role="Facturas_Servicios" Type="Self.Facturas_Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="id_Empleados" />
+      </Principal>
+      <Dependent Role="Facturas_Servicios">
+        <PropertyRef Name="id_Empleados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_Empresas">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="id_empresas" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_TiposComercios">
+    <End Role="TiposComercios" Type="Self.TiposComercios" Multiplicity="1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposComercios">
+        <PropertyRef Name="ID_TiposComercios" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="id_tiposComercio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_ven_Municipios">
+    <End Role="ven_Municipios" Type="Self.ven_Municipios" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Municipios">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="id_ven_municipios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_ven_Parroquias">
+    <End Role="ven_Parroquias" Type="Self.ven_Parroquias" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Parroquias">
+        <PropertyRef Name="id_Parroquias" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="id_ven_parroquias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_world_Idiomas">
+    <End Role="world_Idiomas" Type="Self.world_Idiomas" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Idiomas">
+        <PropertyRef Name="id_World_Idiomas" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="id_World_Idiomas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_world_Localidades">
+    <End Role="world_Localidades" Type="Self.world_Localidades" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Localidades">
+        <PropertyRef Name="id_World_Localidades" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="id_world_localidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_world_Paises">
+    <End Role="world_Paises" Type="Self.world_Paises" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Paises">
+        <PropertyRef Name="id_World_Paises" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="id_world_paises" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_TiposComercios">
+    <End Role="TiposComercios" Type="Self.TiposComercios" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposComercios">
+        <PropertyRef Name="ID_TiposComercios" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_tiposComercios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_ven_Municipios">
+    <End Role="ven_Municipios" Type="Self.ven_Municipios" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Municipios">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_ven_Municipios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_ven_Parroquias">
+    <End Role="ven_Parroquias" Type="Self.ven_Parroquias" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Parroquias">
+        <PropertyRef Name="id_Parroquias" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_ven_Parroquias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_world_Idiomas">
+    <End Role="world_Idiomas" Type="Self.world_Idiomas" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Idiomas">
+        <PropertyRef Name="id_World_Idiomas" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_world_Idiomas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_world_Localidades">
+    <End Role="world_Localidades" Type="Self.world_Localidades" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Localidades">
+        <PropertyRef Name="id_World_Localidades" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_world_Localidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresas_Sucursales_world_Regiones">
+    <End Role="world_Regiones" Type="Self.world_Regiones" Multiplicity="1" />
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Regiones">
+        <PropertyRef Name="id_Regiones" />
+      </Principal>
+      <Dependent Role="Empresas_Sucursales">
+        <PropertyRef Name="id_world_Regiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupo_Usuarios_Empresas_Sucursales">
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="1" />
+    <End Role="Grupo_Usuarios" Type="Self.Grupo_Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Principal>
+      <Dependent Role="Grupo_Usuarios">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licencias_Empresas_Sucursales">
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="1" />
+    <End Role="Licencias" Type="Self.Licencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Principal>
+      <Dependent Role="Licencias">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiposDescuento_Empresas_Sucursales">
+    <End Role="Empresas_Sucursales" Type="Self.Empresas_Sucursales" Multiplicity="1" />
+    <End Role="TiposDescuento" Type="Self.TiposDescuento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_Sucursales">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Principal>
+      <Dependent Role="TiposDescuento">
+        <PropertyRef Name="id_Empresas_Sucursales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Licencias">
+    <End Role="Licencias" Type="Self.Licencias" Multiplicity="1" />
+    <End Role="Estaciones" Type="Self.Estaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licencias">
+        <PropertyRef Name="id_Licencias" />
+      </Principal>
+      <Dependent Role="Estaciones">
+        <PropertyRef Name="id_Licencias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Reportes_Estaciones">
+    <End Role="Estaciones" Type="Self.Estaciones" Multiplicity="1" />
+    <End Role="Estaciones_Reportes" Type="Self.Estaciones_Reportes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones">
+        <PropertyRef Name="id_Estaciones" />
+      </Principal>
+      <Dependent Role="Estaciones_Reportes">
+        <PropertyRef Name="id_Estaciones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Sesiones_Estaciones">
+    <End Role="Estaciones" Type="Self.Estaciones" Multiplicity="1" />
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones">
+        <PropertyRef Name="id_Estaciones" />
+      </Principal>
+      <Dependent Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_estaciones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Sesiones_Detalle_Estaciones_Sesiones">
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="1" />
+    <End Role="Estaciones_Sesiones_Detalle" Type="Self.Estaciones_Sesiones_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Principal>
+      <Dependent Role="Estaciones_Sesiones_Detalle">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estaciones_Sesiones_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_Usuarios" />
+      </Principal>
+      <Dependent Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Usuarios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Modificadas_Estaciones_Sesiones">
+    <End Role="Estaciones_Sesiones" Type="Self.Estaciones_Sesiones" Multiplicity="1" />
+    <End Role="Facturas_Modificadas" Type="Self.Facturas_Modificadas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estaciones_Sesiones">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Principal>
+      <Dependent Role="Facturas_Modificadas">
+        <PropertyRef Name="id_Estaciones_Sesiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Descuentos_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_Descuentos" Type="Self.Facturas_Descuentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_Descuentos">
+        <PropertyRef Name="id_Facturas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_Detalle" Type="Self.Facturas_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle">
+        <PropertyRef Name="id_Facturas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_IF_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_IF" Type="Self.Facturas_IF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_IF">
+        <PropertyRef Name="Id_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Impuestos_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_Impuestos" Type="Self.Facturas_Impuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_Impuestos">
+        <PropertyRef Name="id_Facturas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Modificadas_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_Modificadas" Type="Self.Facturas_Modificadas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_Modificadas">
+        <PropertyRef Name="id_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Servicios_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_Servicios" Type="Self.Facturas_Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_Servicios">
+        <PropertyRef Name="id_Facturas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_TiposPago_Facturas">
+    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
+    <End Role="Facturas_TiposPago" Type="Self.Facturas_TiposPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas">
+        <PropertyRef Name="id_Facturas" />
+      </Principal>
+      <Dependent Role="Facturas_TiposPago">
+        <PropertyRef Name="id_Facturas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Descuentos_TiposDescuento">
+    <End Role="TiposDescuento" Type="Self.TiposDescuento" Multiplicity="1" />
+    <End Role="Facturas_Descuentos" Type="Self.Facturas_Descuentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDescuento">
+        <PropertyRef Name="id_TiposDescuento" />
+      </Principal>
+      <Dependent Role="Facturas_Descuentos">
+        <PropertyRef Name="id_TiposDescuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_Descuentos_Facturas_Detalle">
+    <End Role="Facturas_Detalle" Type="Self.Facturas_Detalle" Multiplicity="1" />
+    <End Role="Facturas_Detalle_Descuentos" Type="Self.Facturas_Detalle_Descuentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas_Detalle">
+        <PropertyRef Name="id_Facturas_Detalle" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle_Descuentos">
+        <PropertyRef Name="id_FacturaDetalle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_Impuestos_Facturas_Detalle">
+    <End Role="Facturas_Detalle" Type="Self.Facturas_Detalle" Multiplicity="1" />
+    <End Role="Facturas_Detalle_Impuestos" Type="Self.Facturas_Detalle_Impuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas_Detalle">
+        <PropertyRef Name="id_Facturas_Detalle" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle_Impuestos">
+        <PropertyRef Name="id_Facturas_Detalle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_Productos">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Facturas_Detalle" Type="Self.Facturas_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="id_Productos" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle">
+        <PropertyRef Name="id_Productos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_TiposProducto">
+    <End Role="TiposProducto" Type="Self.TiposProducto" Multiplicity="0..1" />
+    <End Role="Facturas_Detalle" Type="Self.Facturas_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposProducto">
+        <PropertyRef Name="id_TiposProducto" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle">
+        <PropertyRef Name="id_TiposProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_Descuentos_TiposDescuento">
+    <End Role="TiposDescuento" Type="Self.TiposDescuento" Multiplicity="1" />
+    <End Role="Facturas_Detalle_Descuentos" Type="Self.Facturas_Detalle_Descuentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposDescuento">
+        <PropertyRef Name="id_TiposDescuento" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle_Descuentos">
+        <PropertyRef Name="id_TiposDescuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Detalle_Impuestos_TiposImpuestos">
+    <End Role="TiposImpuestos" Type="Self.TiposImpuestos" Multiplicity="1" />
+    <End Role="Facturas_Detalle_Impuestos" Type="Self.Facturas_Detalle_Impuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposImpuestos">
+        <PropertyRef Name="Id_TiposImpuestos" />
+      </Principal>
+      <Dependent Role="Facturas_Detalle_Impuestos">
+        <PropertyRef Name="id_TiposImpuestos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Impuestos_TiposImpuestos">
+    <End Role="TiposImpuestos" Type="Self.TiposImpuestos" Multiplicity="1" />
+    <End Role="Facturas_Impuestos" Type="Self.Facturas_Impuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposImpuestos">
+        <PropertyRef Name="Id_TiposImpuestos" />
+      </Principal>
+      <Dependent Role="Facturas_Impuestos">
+        <PropertyRef Name="Id_TiposImpuestos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_Modificadas_IF_Facturas_Modificadas">
+    <End Role="Facturas_Modificadas" Type="Self.Facturas_Modificadas" Multiplicity="1" />
+    <End Role="Facturas_Modificadas_IF" Type="Self.Facturas_Modificadas_IF" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facturas_Modificadas">
+        <PropertyRef Name="id_Facturas_modificadas" />
+      </Principal>
+      <Dependent Role="Facturas_Modificadas_IF">
+        <PropertyRef Name="id_Facturas_Modificadas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Facturas_TiposPago_TiposPago">
+    <End Role="TiposPago" Type="Self.TiposPago" Multiplicity="1" />
+    <End Role="Facturas_TiposPago" Type="Self.Facturas_TiposPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposPago">
+        <PropertyRef Name="id_TiposPago" />
+      </Principal>
+      <Dependent Role="Facturas_TiposPago">
+        <PropertyRef Name="id_TiposPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Grupo_Usuarios">
+    <End Role="Grupo_Usuarios" Type="Self.Grupo_Usuarios" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupo_Usuarios">
+        <PropertyRef Name="id_Grupo_Usuarios" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="id_grupo_usuarios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_rolesModulo_Modulos">
+    <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+    <End Role="Usuarios_rolesModulo" Type="Self.Usuarios_rolesModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulos">
+        <PropertyRef Name="id_modulos" />
+      </Principal>
+      <Dependent Role="Usuarios_rolesModulo">
+        <PropertyRef Name="id_Modulos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Impuestos_Productos">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Productos_Impuestos" Type="Self.Productos_Impuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="id_Productos" />
+      </Principal>
+      <Dependent Role="Productos_Impuestos">
+        <PropertyRef Name="Id_Productos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Productos_Familias">
+    <End Role="Productos_Familias" Type="Self.Productos_Familias" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos_Familias">
+        <PropertyRef Name="id_Productos_Familias" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="id_Productos_familias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Productos_Marcas">
+    <End Role="Productos_Marcas" Type="Self.Productos_Marcas" Multiplicity="0..1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos_Marcas">
+        <PropertyRef Name="id_ProductoMarca" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="id_Productos_Marcas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_TiposProducto">
+    <End Role="TiposProducto" Type="Self.TiposProducto" Multiplicity="0..1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposProducto">
+        <PropertyRef Name="id_TiposProducto" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="id_TiposProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_TiposUnidadesMedida">
+    <End Role="TiposUnidadesMedida" Type="Self.TiposUnidadesMedida" Multiplicity="1" />
+    <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposUnidadesMedida">
+        <PropertyRef Name="id_UnidadesMedida" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="id_UnidadesMedida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Impuestos_TiposImpuestos">
+    <End Role="TiposImpuestos" Type="Self.TiposImpuestos" Multiplicity="1" />
+    <End Role="Productos_Impuestos" Type="Self.Productos_Impuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposImpuestos">
+        <PropertyRef Name="Id_TiposImpuestos" />
+      </Principal>
+      <Dependent Role="Productos_Impuestos">
+        <PropertyRef Name="Id_TiposImpuestos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiposPago_TiposPago_Doc">
+    <End Role="TiposPago_Doc" Type="Self.TiposPago_Doc" Multiplicity="1" />
+    <End Role="TiposPago" Type="Self.TiposPago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposPago_Doc">
+        <PropertyRef Name="id_TipoPago_Doc" />
+      </Principal>
+      <Dependent Role="TiposPago">
+        <PropertyRef Name="id_TiposPago_Doc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiposUnidadesMedida_world_UnidadesMedida">
+    <End Role="world_UnidadesMedida" Type="Self.world_UnidadesMedida" Multiplicity="0..1" />
+    <End Role="TiposUnidadesMedida" Type="Self.TiposUnidadesMedida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_UnidadesMedida">
+        <PropertyRef Name="id_world_UnidadesMedida" />
+      </Principal>
+      <Dependent Role="TiposUnidadesMedida">
+        <PropertyRef Name="id_world_UnidadesMedida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_detalle_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Usuarios_detalle" Type="Self.Usuarios_detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_Usuarios" />
+      </Principal>
+      <Dependent Role="Usuarios_detalle">
+        <PropertyRef Name="id_Usuarios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_roles_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Usuarios_roles" Type="Self.Usuarios_roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_Usuarios" />
+      </Principal>
+      <Dependent Role="Usuarios_roles">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_rolesModulo_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Usuarios_rolesModulo" Type="Self.Usuarios_rolesModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id_Usuarios" />
+      </Principal>
+      <Dependent Role="Usuarios_rolesModulo">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ven_Municipios_world_Regiones">
+    <End Role="world_Regiones" Type="Self.world_Regiones" Multiplicity="1" />
+    <End Role="ven_Municipios" Type="Self.ven_Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Regiones">
+        <PropertyRef Name="id_Regiones" />
+      </Principal>
+      <Dependent Role="ven_Municipios">
+        <PropertyRef Name="id_Estados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ven_Parroquias_ven_Municipios">
+    <End Role="ven_Municipios" Type="Self.ven_Municipios" Multiplicity="1" />
+    <End Role="ven_Parroquias" Type="Self.ven_Parroquias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ven_Municipios">
+        <PropertyRef Name="id_Ven_Municipios" />
+      </Principal>
+      <Dependent Role="ven_Parroquias">
+        <PropertyRef Name="id_Municipios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_world_Paises_world_Idiomas">
+    <End Role="world_Idiomas" Type="Self.world_Idiomas" Multiplicity="1" />
+    <End Role="world_Paises" Type="Self.world_Paises" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Idiomas">
+        <PropertyRef Name="id_World_Idiomas" />
+      </Principal>
+      <Dependent Role="world_Paises">
+        <PropertyRef Name="id_World_Idiomas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_world_Localidades_world_Regiones">
+    <End Role="world_Regiones" Type="Self.world_Regiones" Multiplicity="1" />
+    <End Role="world_Localidades" Type="Self.world_Localidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Regiones">
+        <PropertyRef Name="id_Regiones" />
+      </Principal>
+      <Dependent Role="world_Localidades">
+        <PropertyRef Name="id_World_Regiones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_world_Regiones_world_Paises">
+    <End Role="world_Paises" Type="Self.world_Paises" Multiplicity="1" />
+    <End Role="world_Regiones" Type="Self.world_Regiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="world_Paises">
+        <PropertyRef Name="id_World_Paises" />
+      </Principal>
+      <Dependent Role="world_Regiones">
+        <PropertyRef Name="id_World_Paises" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="kssERPSucursaldbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Almacenes" EntityType="Self.Almacenes" />
+    <EntitySet Name="Bancos" EntityType="Self.Bancos" />
+    <EntitySet Name="Cajas" EntityType="Self.Cajas" />
+    <EntitySet Name="Cajas_Cortes" EntityType="Self.Cajas_Cortes" />
+    <EntitySet Name="Cajas_Cortes_IF" EntityType="Self.Cajas_Cortes_IF" />
+    <EntitySet Name="Cajas_Egresos" EntityType="Self.Cajas_Egresos" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" />
+    <EntitySet Name="Empresas_Sucursales" EntityType="Self.Empresas_Sucursales" />
+    <EntitySet Name="Estaciones" EntityType="Self.Estaciones" />
+    <EntitySet Name="Estaciones_Dipositivo_VisorPrecios" EntityType="Self.Estaciones_Dipositivo_VisorPrecios" />
+    <EntitySet Name="Estaciones_Dispositivo_Balanza" EntityType="Self.Estaciones_Dispositivo_Balanza" />
+    <EntitySet Name="Estaciones_Dispositivo_Firma" EntityType="Self.Estaciones_Dispositivo_Firma" />
+    <EntitySet Name="Estaciones_Dispositivo_GavetaDinero" EntityType="Self.Estaciones_Dispositivo_GavetaDinero" />
+    <EntitySet Name="Estaciones_Dispositivo_Impresora" EntityType="Self.Estaciones_Dispositivo_Impresora" />
+    <EntitySet Name="Estaciones_Reportes" EntityType="Self.Estaciones_Reportes" />
+    <EntitySet Name="Estaciones_Sesiones" EntityType="Self.Estaciones_Sesiones" />
+    <EntitySet Name="Estaciones_Sesiones_Detalle" EntityType="Self.Estaciones_Sesiones_Detalle" />
+    <EntitySet Name="Facturas" EntityType="Self.Facturas" />
+    <EntitySet Name="Facturas_Descuentos" EntityType="Self.Facturas_Descuentos" />
+    <EntitySet Name="Facturas_Detalle" EntityType="Self.Facturas_Detalle" />
+    <EntitySet Name="Facturas_Detalle_Descuentos" EntityType="Self.Facturas_Detalle_Descuentos" />
+    <EntitySet Name="Facturas_Detalle_Impuestos" EntityType="Self.Facturas_Detalle_Impuestos" />
+    <EntitySet Name="Facturas_IF" EntityType="Self.Facturas_IF" />
+    <EntitySet Name="Facturas_Impuestos" EntityType="Self.Facturas_Impuestos" />
+    <EntitySet Name="Facturas_Modificadas" EntityType="Self.Facturas_Modificadas" />
+    <EntitySet Name="Facturas_Modificadas_IF" EntityType="Self.Facturas_Modificadas_IF" />
+    <EntitySet Name="Facturas_Servicios" EntityType="Self.Facturas_Servicios" />
+    <EntitySet Name="Facturas_TiposPago" EntityType="Self.Facturas_TiposPago" />
+    <EntitySet Name="Grupo_Usuarios" EntityType="Self.Grupo_Usuarios" />
+    <EntitySet Name="Licencias" EntityType="Self.Licencias" />
+    <EntitySet Name="Modulos" EntityType="Self.Modulos" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+    <EntitySet Name="Productos_Calzado" EntityType="Self.Productos_Calzado" />
+    <EntitySet Name="Productos_Compuestos" EntityType="Self.Productos_Compuestos" />
+    <EntitySet Name="Productos_Familias" EntityType="Self.Productos_Familias" />
+    <EntitySet Name="Productos_Farmacia" EntityType="Self.Productos_Farmacia" />
+    <EntitySet Name="Productos_Impuestos" EntityType="Self.Productos_Impuestos" />
+    <EntitySet Name="Productos_Marcas" EntityType="Self.Productos_Marcas" />
+    <EntitySet Name="Productos_Supermercado" EntityType="Self.Productos_Supermercado" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TiposComercios" EntityType="Self.TiposComercios" />
+    <EntitySet Name="TiposDescuento" EntityType="Self.TiposDescuento" />
+    <EntitySet Name="TiposEgreso_Caja" EntityType="Self.TiposEgreso_Caja" />
+    <EntitySet Name="TiposImpuestos" EntityType="Self.TiposImpuestos" />
+    <EntitySet Name="TiposPago" EntityType="Self.TiposPago" />
+    <EntitySet Name="TiposPago_Doc" EntityType="Self.TiposPago_Doc" />
+    <EntitySet Name="TiposProducto" EntityType="Self.TiposProducto" />
+    <EntitySet Name="TiposUnidadesMedida" EntityType="Self.TiposUnidadesMedida" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="Usuarios_detalle" EntityType="Self.Usuarios_detalle" />
+    <EntitySet Name="Usuarios_roles" EntityType="Self.Usuarios_roles" />
+    <EntitySet Name="Usuarios_rolesModulo" EntityType="Self.Usuarios_rolesModulo" />
+    <EntitySet Name="ven_Municipios" EntityType="Self.ven_Municipios" />
+    <EntitySet Name="ven_Parroquias" EntityType="Self.ven_Parroquias" />
+    <EntitySet Name="world_Idiomas" EntityType="Self.world_Idiomas" />
+    <EntitySet Name="world_Localidades" EntityType="Self.world_Localidades" />
+    <EntitySet Name="world_Paises" EntityType="Self.world_Paises" />
+    <EntitySet Name="world_Profesiones" EntityType="Self.world_Profesiones" />
+    <EntitySet Name="world_Regiones" EntityType="Self.world_Regiones" />
+    <EntitySet Name="world_UnidadesMedida" EntityType="Self.world_UnidadesMedida" />
+    <EntitySet Name="Estaciones_Reportes_hoteles" EntityType="Self.Estaciones_Reportes_hoteles" />
+    <AssociationSet Name="FK_Almacenes_Empresas_Sucursales" Association="Self.FK_Almacenes_Empresas_Sucursales">
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+      <End Role="Almacenes" EntitySet="Almacenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Almacenes" Association="Self.FK_Estaciones_Almacenes">
+      <End Role="Almacenes" EntitySet="Almacenes" />
+      <End Role="Estaciones" EntitySet="Estaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_TiposPago_Bancos" Association="Self.FK_Facturas_TiposPago_Bancos">
+      <End Role="Bancos" EntitySet="Bancos" />
+      <End Role="Facturas_TiposPago" EntitySet="Facturas_TiposPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Estaciones" Association="Self.FK_Cajas_Estaciones">
+      <End Role="Estaciones" EntitySet="Estaciones" />
+      <End Role="Cajas" EntitySet="Cajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_TiposPago" Association="Self.FK_Cajas_TiposPago">
+      <End Role="TiposPago" EntitySet="TiposPago" />
+      <End Role="Cajas" EntitySet="Cajas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Sesiones_Cajas" Association="Self.FK_Estaciones_Sesiones_Cajas">
+      <End Role="Cajas" EntitySet="Cajas" />
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Cajas" Association="Self.FK_Facturas_Cajas">
+      <End Role="Cajas" EntitySet="Cajas" />
+      <End Role="Facturas" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Cortes_Estaciones_Sesiones" Association="Self.FK_Cajas_Cortes_Estaciones_Sesiones">
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+      <End Role="Cajas_Cortes" EntitySet="Cajas_Cortes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Cortes_Facturas" Association="Self.FK_Cajas_Cortes_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Cajas_Cortes" EntitySet="Cajas_Cortes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Cortes_Facturas1" Association="Self.FK_Cajas_Cortes_Facturas1">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Cajas_Cortes" EntitySet="Cajas_Cortes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Cortes_Facturas2" Association="Self.FK_Cajas_Cortes_Facturas2">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Cajas_Cortes" EntitySet="Cajas_Cortes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Cortes_Facturas3" Association="Self.FK_Cajas_Cortes_Facturas3">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Cajas_Cortes" EntitySet="Cajas_Cortes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Cortes_IF_Cajas_Cortes" Association="Self.FK_Cajas_Cortes_IF_Cajas_Cortes">
+      <End Role="Cajas_Cortes" EntitySet="Cajas_Cortes" />
+      <End Role="Cajas_Cortes_IF" EntitySet="Cajas_Cortes_IF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Egresos_Cajas_Cortes_IF" Association="Self.FK_Cajas_Egresos_Cajas_Cortes_IF">
+      <End Role="Cajas_Cortes_IF" EntitySet="Cajas_Cortes_IF" />
+      <End Role="Cajas_Egresos" EntitySet="Cajas_Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Egresos_Estaciones_Sesiones" Association="Self.FK_Cajas_Egresos_Estaciones_Sesiones">
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+      <End Role="Cajas_Egresos" EntitySet="Cajas_Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Egresos_TiposEgreso_Caja" Association="Self.FK_Cajas_Egresos_TiposEgreso_Caja">
+      <End Role="TiposEgreso_Caja" EntitySet="TiposEgreso_Caja" />
+      <End Role="Cajas_Egresos" EntitySet="Cajas_Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cajas_Egresos_Usuarios" Association="Self.FK_Cajas_Egresos_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Cajas_Egresos" EntitySet="Cajas_Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Empresas_Sucursales" Association="Self.FK_Clientes_Empresas_Sucursales">
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_TiposPago" Association="Self.FK_Clientes_TiposPago">
+      <End Role="TiposPago" EntitySet="TiposPago" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_ven_Municipios" Association="Self.FK_Clientes_ven_Municipios">
+      <End Role="ven_Municipios" EntitySet="ven_Municipios" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_world_Localidades" Association="Self.FK_Clientes_world_Localidades">
+      <End Role="world_Localidades" EntitySet="world_Localidades" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_world_Localidades1" Association="Self.FK_Clientes_world_Localidades1">
+      <End Role="world_Localidades" EntitySet="world_Localidades" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_world_Paises" Association="Self.FK_Clientes_world_Paises">
+      <End Role="world_Paises" EntitySet="world_Paises" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_world_Profesiones" Association="Self.FK_Clientes_world_Profesiones">
+      <End Role="world_Profesiones" EntitySet="world_Profesiones" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_world_Regiones" Association="Self.FK_Clientes_world_Regiones">
+      <End Role="world_Regiones" EntitySet="world_Regiones" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Clientes" Association="Self.FK_Facturas_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Facturas" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_Empresas_Sucursales" Association="Self.FK_Empleados_Empresas_Sucursales">
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_ven_Municipios" Association="Self.FK_Empleados_ven_Municipios">
+      <End Role="ven_Municipios" EntitySet="ven_Municipios" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_ven_Parroquias" Association="Self.FK_Empleados_ven_Parroquias">
+      <End Role="ven_Parroquias" EntitySet="ven_Parroquias" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_world_Localidades" Association="Self.FK_Empleados_world_Localidades">
+      <End Role="world_Localidades" EntitySet="world_Localidades" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_world_Paises" Association="Self.FK_Empleados_world_Paises">
+      <End Role="world_Paises" EntitySet="world_Paises" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_world_Profesiones" Association="Self.FK_Empleados_world_Profesiones">
+      <End Role="world_Profesiones" EntitySet="world_Profesiones" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_world_Regiones" Association="Self.FK_Empleados_world_Regiones">
+      <End Role="world_Regiones" EntitySet="world_Regiones" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Sesiones_Empleados" Association="Self.FK_Estaciones_Sesiones_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Empleados" Association="Self.FK_Facturas_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Facturas" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Servicios_Empleados" Association="Self.FK_Facturas_Servicios_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Facturas_Servicios" EntitySet="Facturas_Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_Empresas" Association="Self.FK_Empresas_Sucursales_Empresas">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_TiposComercios" Association="Self.FK_Empresas_TiposComercios">
+      <End Role="TiposComercios" EntitySet="TiposComercios" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_ven_Municipios" Association="Self.FK_Empresas_ven_Municipios">
+      <End Role="ven_Municipios" EntitySet="ven_Municipios" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_ven_Parroquias" Association="Self.FK_Empresas_ven_Parroquias">
+      <End Role="ven_Parroquias" EntitySet="ven_Parroquias" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_world_Idiomas" Association="Self.FK_Empresas_world_Idiomas">
+      <End Role="world_Idiomas" EntitySet="world_Idiomas" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_world_Localidades" Association="Self.FK_Empresas_world_Localidades">
+      <End Role="world_Localidades" EntitySet="world_Localidades" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_world_Paises" Association="Self.FK_Empresas_world_Paises">
+      <End Role="world_Paises" EntitySet="world_Paises" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_TiposComercios" Association="Self.FK_Empresas_Sucursales_TiposComercios">
+      <End Role="TiposComercios" EntitySet="TiposComercios" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_ven_Municipios" Association="Self.FK_Empresas_Sucursales_ven_Municipios">
+      <End Role="ven_Municipios" EntitySet="ven_Municipios" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_ven_Parroquias" Association="Self.FK_Empresas_Sucursales_ven_Parroquias">
+      <End Role="ven_Parroquias" EntitySet="ven_Parroquias" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_world_Idiomas" Association="Self.FK_Empresas_Sucursales_world_Idiomas">
+      <End Role="world_Idiomas" EntitySet="world_Idiomas" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_world_Localidades" Association="Self.FK_Empresas_Sucursales_world_Localidades">
+      <End Role="world_Localidades" EntitySet="world_Localidades" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresas_Sucursales_world_Regiones" Association="Self.FK_Empresas_Sucursales_world_Regiones">
+      <End Role="world_Regiones" EntitySet="world_Regiones" />
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupo_Usuarios_Empresas_Sucursales" Association="Self.FK_Grupo_Usuarios_Empresas_Sucursales">
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+      <End Role="Grupo_Usuarios" EntitySet="Grupo_Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licencias_Empresas_Sucursales" Association="Self.FK_Licencias_Empresas_Sucursales">
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+      <End Role="Licencias" EntitySet="Licencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiposDescuento_Empresas_Sucursales" Association="Self.FK_TiposDescuento_Empresas_Sucursales">
+      <End Role="Empresas_Sucursales" EntitySet="Empresas_Sucursales" />
+      <End Role="TiposDescuento" EntitySet="TiposDescuento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Licencias" Association="Self.FK_Estaciones_Licencias">
+      <End Role="Licencias" EntitySet="Licencias" />
+      <End Role="Estaciones" EntitySet="Estaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Reportes_Estaciones" Association="Self.FK_Estaciones_Reportes_Estaciones">
+      <End Role="Estaciones" EntitySet="Estaciones" />
+      <End Role="Estaciones_Reportes" EntitySet="Estaciones_Reportes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Sesiones_Estaciones" Association="Self.FK_Estaciones_Sesiones_Estaciones">
+      <End Role="Estaciones" EntitySet="Estaciones" />
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Sesiones_Detalle_Estaciones_Sesiones" Association="Self.FK_Estaciones_Sesiones_Detalle_Estaciones_Sesiones">
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+      <End Role="Estaciones_Sesiones_Detalle" EntitySet="Estaciones_Sesiones_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estaciones_Sesiones_Usuarios" Association="Self.FK_Estaciones_Sesiones_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Modificadas_Estaciones_Sesiones" Association="Self.FK_Facturas_Modificadas_Estaciones_Sesiones">
+      <End Role="Estaciones_Sesiones" EntitySet="Estaciones_Sesiones" />
+      <End Role="Facturas_Modificadas" EntitySet="Facturas_Modificadas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Descuentos_Facturas" Association="Self.FK_Facturas_Descuentos_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_Descuentos" EntitySet="Facturas_Descuentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_Facturas" Association="Self.FK_Facturas_Detalle_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_Detalle" EntitySet="Facturas_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_IF_Facturas" Association="Self.FK_Facturas_IF_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_IF" EntitySet="Facturas_IF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Impuestos_Facturas" Association="Self.FK_Facturas_Impuestos_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_Impuestos" EntitySet="Facturas_Impuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Modificadas_Facturas" Association="Self.FK_Facturas_Modificadas_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_Modificadas" EntitySet="Facturas_Modificadas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Servicios_Facturas" Association="Self.FK_Facturas_Servicios_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_Servicios" EntitySet="Facturas_Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_TiposPago_Facturas" Association="Self.FK_Facturas_TiposPago_Facturas">
+      <End Role="Facturas" EntitySet="Facturas" />
+      <End Role="Facturas_TiposPago" EntitySet="Facturas_TiposPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Descuentos_TiposDescuento" Association="Self.FK_Facturas_Descuentos_TiposDescuento">
+      <End Role="TiposDescuento" EntitySet="TiposDescuento" />
+      <End Role="Facturas_Descuentos" EntitySet="Facturas_Descuentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_Descuentos_Facturas_Detalle" Association="Self.FK_Facturas_Detalle_Descuentos_Facturas_Detalle">
+      <End Role="Facturas_Detalle" EntitySet="Facturas_Detalle" />
+      <End Role="Facturas_Detalle_Descuentos" EntitySet="Facturas_Detalle_Descuentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_Impuestos_Facturas_Detalle" Association="Self.FK_Facturas_Detalle_Impuestos_Facturas_Detalle">
+      <End Role="Facturas_Detalle" EntitySet="Facturas_Detalle" />
+      <End Role="Facturas_Detalle_Impuestos" EntitySet="Facturas_Detalle_Impuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_Productos" Association="Self.FK_Facturas_Detalle_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Facturas_Detalle" EntitySet="Facturas_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_TiposProducto" Association="Self.FK_Facturas_Detalle_TiposProducto">
+      <End Role="TiposProducto" EntitySet="TiposProducto" />
+      <End Role="Facturas_Detalle" EntitySet="Facturas_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_Descuentos_TiposDescuento" Association="Self.FK_Facturas_Detalle_Descuentos_TiposDescuento">
+      <End Role="TiposDescuento" EntitySet="TiposDescuento" />
+      <End Role="Facturas_Detalle_Descuentos" EntitySet="Facturas_Detalle_Descuentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Detalle_Impuestos_TiposImpuestos" Association="Self.FK_Facturas_Detalle_Impuestos_TiposImpuestos">
+      <End Role="TiposImpuestos" EntitySet="TiposImpuestos" />
+      <End Role="Facturas_Detalle_Impuestos" EntitySet="Facturas_Detalle_Impuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Impuestos_TiposImpuestos" Association="Self.FK_Facturas_Impuestos_TiposImpuestos">
+      <End Role="TiposImpuestos" EntitySet="TiposImpuestos" />
+      <End Role="Facturas_Impuestos" EntitySet="Facturas_Impuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_Modificadas_IF_Facturas_Modificadas" Association="Self.FK_Facturas_Modificadas_IF_Facturas_Modificadas">
+      <End Role="Facturas_Modificadas" EntitySet="Facturas_Modificadas" />
+      <End Role="Facturas_Modificadas_IF" EntitySet="Facturas_Modificadas_IF" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Facturas_TiposPago_TiposPago" Association="Self.FK_Facturas_TiposPago_TiposPago">
+      <End Role="TiposPago" EntitySet="TiposPago" />
+      <End Role="Facturas_TiposPago" EntitySet="Facturas_TiposPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Grupo_Usuarios" Association="Self.FK_Usuarios_Grupo_Usuarios">
+      <End Role="Grupo_Usuarios" EntitySet="Grupo_Usuarios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_rolesModulo_Modulos" Association="Self.FK_Usuarios_rolesModulo_Modulos">
+      <End Role="Modulos" EntitySet="Modulos" />
+      <End Role="Usuarios_rolesModulo" EntitySet="Usuarios_rolesModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Impuestos_Productos" Association="Self.FK_Productos_Impuestos_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Productos_Impuestos" EntitySet="Productos_Impuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Productos_Familias" Association="Self.FK_Productos_Productos_Familias">
+      <End Role="Productos_Familias" EntitySet="Productos_Familias" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Productos_Marcas" Association="Self.FK_Productos_Productos_Marcas">
+      <End Role="Productos_Marcas" EntitySet="Productos_Marcas" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_TiposProducto" Association="Self.FK_Productos_TiposProducto">
+      <End Role="TiposProducto" EntitySet="TiposProducto" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_TiposUnidadesMedida" Association="Self.FK_Productos_TiposUnidadesMedida">
+      <End Role="TiposUnidadesMedida" EntitySet="TiposUnidadesMedida" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Impuestos_TiposImpuestos" Association="Self.FK_Productos_Impuestos_TiposImpuestos">
+      <End Role="TiposImpuestos" EntitySet="TiposImpuestos" />
+      <End Role="Productos_Impuestos" EntitySet="Productos_Impuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiposPago_TiposPago_Doc" Association="Self.FK_TiposPago_TiposPago_Doc">
+      <End Role="TiposPago_Doc" EntitySet="TiposPago_Doc" />
+      <End Role="TiposPago" EntitySet="TiposPago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiposUnidadesMedida_world_UnidadesMedida" Association="Self.FK_TiposUnidadesMedida_world_UnidadesMedida">
+      <End Role="world_UnidadesMedida" EntitySet="world_UnidadesMedida" />
+      <End Role="TiposUnidadesMedida" EntitySet="TiposUnidadesMedida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_detalle_Usuarios" Association="Self.FK_Usuarios_detalle_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Usuarios_detalle" EntitySet="Usuarios_detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_roles_Usuarios" Association="Self.FK_Usuarios_roles_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Usuarios_roles" EntitySet="Usuarios_roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_rolesModulo_Usuarios" Association="Self.FK_Usuarios_rolesModulo_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Usuarios_rolesModulo" EntitySet="Usuarios_rolesModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ven_Municipios_world_Regiones" Association="Self.FK_ven_Municipios_world_Regiones">
+      <End Role="world_Regiones" EntitySet="world_Regiones" />
+      <End Role="ven_Municipios" EntitySet="ven_Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ven_Parroquias_ven_Municipios" Association="Self.FK_ven_Parroquias_ven_Municipios">
+      <End Role="ven_Municipios" EntitySet="ven_Municipios" />
+      <End Role="ven_Parroquias" EntitySet="ven_Parroquias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_world_Paises_world_Idiomas" Association="Self.FK_world_Paises_world_Idiomas">
+      <End Role="world_Idiomas" EntitySet="world_Idiomas" />
+      <End Role="world_Paises" EntitySet="world_Paises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_world_Localidades_world_Regiones" Association="Self.FK_world_Localidades_world_Regiones">
+      <End Role="world_Regiones" EntitySet="world_Regiones" />
+      <End Role="world_Localidades" EntitySet="world_Localidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_world_Regiones_world_Paises" Association="Self.FK_world_Regiones_world_Paises">
+      <End Role="world_Paises" EntitySet="world_Paises" />
+      <End Role="world_Regiones" EntitySet="world_Regiones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

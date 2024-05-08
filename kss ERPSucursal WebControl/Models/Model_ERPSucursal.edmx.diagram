@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55a82c81ca7e4ece97b5b6bc3ec36b46" Name="Diagram1">
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Almacenes" Width="1.5" PointX="16.5" PointY="41.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Bancos" Width="1.5" PointX="29.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Cajas" Width="1.5" PointX="24" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Cajas_Cortes" Width="1.5" PointX="31.5" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Cajas_Cortes_IF" Width="1.5" PointX="33.75" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Cajas_Egresos" Width="1.5" PointX="36" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Clientes" Width="1.5" PointX="16.5" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Empleados" Width="1.5" PointX="19.5" PointY="44.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Empresas" Width="1.5" PointX="12" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Empresas_Sucursales" Width="1.5" PointX="14.25" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones" Width="1.5" PointX="18.75" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Dipositivo_VisorPrecios" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Dispositivo_Balanza" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Dispositivo_Firma" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Dispositivo_GavetaDinero" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Dispositivo_Impresora" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Reportes" Width="1.5" PointX="21" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Sesiones" Width="1.5" PointX="26.25" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Sesiones_Detalle" Width="1.5" PointX="28.5" PointY="58.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas" Width="1.5" PointX="26.25" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Descuentos" Width="1.5" PointX="31.5" PointY="59.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Detalle" Width="1.5" PointX="28.5" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Detalle_Descuentos" Width="1.5" PointX="33.75" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Detalle_Impuestos" Width="1.5" PointX="33.75" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_IF" Width="1.5" PointX="28.5" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Impuestos" Width="1.5" PointX="31.5" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Modificadas" Width="1.5" PointX="28.5" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Modificadas_IF" Width="1.5" PointX="30.75" PointY="62.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_Servicios" Width="1.5" PointX="28.5" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Facturas_TiposPago" Width="1.5" PointX="31.5" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Grupo_Usuarios" Width="1.5" PointX="16.5" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Licencias" Width="1.5" PointX="16.5" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Modulos" Width="1.5" PointX="21.75" PointY="67.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos" Width="1.5" PointX="26.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Calzado" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Compuestos" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Familias" Width="1.5" PointX="24" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Farmacia" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Impuestos" Width="1.5" PointX="33.75" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Marcas" Width="1.5" PointX="24" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Productos_Supermercado" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposComercios" Width="1.5" PointX="9.75" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposDescuento" Width="1.5" PointX="16.5" PointY="72.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposEgreso_Caja" Width="1.5" PointX="33.75" PointY="63.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposImpuestos" Width="1.5" PointX="31.5" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposPago" Width="1.5" PointX="21.75" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposPago_Doc" Width="1.5" PointX="19.5" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposProducto" Width="1.5" PointX="24" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.TiposUnidadesMedida" Width="1.5" PointX="24" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Usuarios" Width="1.5" PointX="18.75" PointY="61.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Usuarios_detalle" Width="1.5" PointX="21" PointY="60.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Usuarios_roles" Width="1.5" PointX="21" PointY="63.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Usuarios_rolesModulo" Width="1.5" PointX="24" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.ven_Municipios" Width="1.5" PointX="7.5" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.ven_Parroquias" Width="1.5" PointX="9.75" PointY="49.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.world_Idiomas" Width="1.5" PointX="0.75" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.world_Localidades" Width="1.5" PointX="7.5" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.world_Paises" Width="1.5" PointX="3" PointY="51.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.world_Profesiones" Width="1.5" PointX="14.25" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.world_Regiones" Width="1.5" PointX="5.25" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.world_UnidadesMedida" Width="1.5" PointX="21.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="kssERPSucursaldbModel.Estaciones_Reportes_hoteles" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Almacenes_Empresas_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Almacenes" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_TiposPago_Bancos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Estaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_TiposPago" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Sesiones_Cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Cajas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Cortes_Estaciones_Sesiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Cortes_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Cortes_Facturas1" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Cortes_Facturas2" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Cortes_Facturas3" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Cortes_IF_Cajas_Cortes" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Egresos_Cajas_Cortes_IF" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Egresos_Estaciones_Sesiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Egresos_TiposEgreso_Caja" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Cajas_Egresos_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_Empresas_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_TiposPago" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_ven_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_world_Localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_world_Localidades1" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_world_Paises" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_world_Profesiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Clientes_world_Regiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_Empresas_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_ven_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_ven_Parroquias" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_world_Localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_world_Paises" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_world_Profesiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empleados_world_Regiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Sesiones_Empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Servicios_Empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_Empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_TiposComercios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_ven_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_ven_Parroquias" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_world_Idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_world_Localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_world_Paises" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_TiposComercios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_ven_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_ven_Parroquias" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_world_Idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_world_Localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Empresas_Sucursales_world_Regiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Grupo_Usuarios_Empresas_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Licencias_Empresas_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_TiposDescuento_Empresas_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Licencias" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Reportes_Estaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Sesiones_Estaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Sesiones_Detalle_Estaciones_Sesiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Estaciones_Sesiones_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Modificadas_Estaciones_Sesiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Descuentos_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_IF_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Impuestos_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Modificadas_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Servicios_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_TiposPago_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Descuentos_TiposDescuento" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_Descuentos_Facturas_Detalle" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_Impuestos_Facturas_Detalle" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_TiposProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_Descuentos_TiposDescuento" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Detalle_Impuestos_TiposImpuestos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Impuestos_TiposImpuestos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_Modificadas_IF_Facturas_Modificadas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Facturas_TiposPago_TiposPago" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Usuarios_Grupo_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Usuarios_rolesModulo_Modulos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Productos_Impuestos_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Productos_Productos_Familias" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Productos_Productos_Marcas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Productos_TiposProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Productos_TiposUnidadesMedida" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Productos_Impuestos_TiposImpuestos" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_TiposPago_TiposPago_Doc" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_TiposUnidadesMedida_world_UnidadesMedida" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Usuarios_detalle_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Usuarios_roles_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_Usuarios_rolesModulo_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_ven_Municipios_world_Regiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_ven_Parroquias_ven_Municipios" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_world_Paises_world_Idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_world_Localidades_world_Regiones" ManuallyRouted="false" />
+        <AssociationConnector Association="kssERPSucursaldbModel.FK_world_Regiones_world_Paises" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

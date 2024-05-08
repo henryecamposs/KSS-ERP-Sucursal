@@ -1,0 +1,52 @@
+﻿@model IEnumerable<kss_ERPSucursal_WebControl.Models.world_Paises>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.x)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.y)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.world_Idiomas.codigo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.x)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.y)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.world_Idiomas.codigo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_World_Paises }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_World_Paises }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_World_Paises })
+        </td>
+    </tr>
+}
+
+</table>
